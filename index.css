@@ -4,7 +4,7 @@
 }
 a{
     text-decoration: none;
-    color: rgb(199, 23, 23);
+    color: #D00000;
 }
 
 .navbar {
@@ -20,7 +20,7 @@ a{
     letter-spacing: 4px;
 }
 .NavBar,.navbarimg {
-    background-color: gray ;
+    background-color: #bde0fe ;
     height: 45px;
     text-decoration: none;
     float: left;
@@ -31,7 +31,7 @@ a{
 .NavBar input{
     width: 500px;
     margin-top: 10px;
-    margin-right: 80px;
+    margin-right: 70px;
     padding-left: 10px;
     height: 30px;
     font-size: 15px;
@@ -55,7 +55,8 @@ a{
     font-size: 23px;    
     border: 1px solid black;
     border-radius: 5px;
-    letter-spacing: 8px;
+    letter-spacing: 4px;
     box-shadow: 12px 10px 12px 1px rgba(49, 56, 59, 0.2);
+    transform: translateY(-2px);
     transition: 0.35s;
 }
