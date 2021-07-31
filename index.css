@@ -63,7 +63,7 @@ a{
     letter-spacing: 4px;
     box-shadow: 12px 10px 12px 1px rgba(49, 56, 59, 0.2);
     transform: translateY(-2px);
-    transition: 0.35s;
+    transition: 0.5s;
 }
 
 .imgReg{
@@ -90,4 +90,76 @@ a{
 .product img{
     width: 100px;
     height: 100px;
+}
+
+/*Register page*/
+.RegisterContainer{
+    border: 2px solid red;
+    margin: 30px 500px 0px 500px;
+}
+.Reglogo{
+    position: relative;
+}
+.Reglogo img{
+    position: absolute;
+    height: 45px;
+    width: 45px;
+    left: 10px ;
+    top: 8px;
+}
+.Reglogo p{
+    /* position: absolute; */
+    margin-left: 60px;
+    width: 120px;
+    padding-top: 27px;
+    font-size: 25px;
+    
+}
+.field input:valid + label::before,.field input:focus +label::before{
+    line-height: 20px;
+    font-size: 12px;
+    top: -10px; 
+    background-color: #fff;
+    padding: 0 6px;
+    left: 9px;
+    
+}
+.field{
+    position: relative;
+    
+    margin: 15px 20px 15px 20px ;
+}
+.field label::before{
+    content: attr(title);
+    position: absolute;
+    top: 0;
+    left: 15px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #777;
+    transition: 300ms all;
+}
+.field input{
+    width: 100%;
+    line-height: 40px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #222;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.field input::placeholder{
+    color: white;
+}
+.field input:focus{
+    outline: 0;
+    border-color: blue;
+}
+.field input:focus + label::before{
+    color: blue;
+}
+.RegisterContainer button{
+    width: 100%;
+    background-color: red;
 }

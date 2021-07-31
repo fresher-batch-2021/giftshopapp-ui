@@ -1,18 +1,39 @@
 <html>
-    <head></head>
+    <head>
+        <!-- <link rel="stylesheet" href="index.css"> -->
+    </head>
     <body>
+        <header id="header"></header>
+    <div class="RegisterContainer">
+     
+        <div class="Reglogo">
+        <img src="Assets/Images/gift.png" alt="none">
+        <p>Gift Corner</p><br> 
+    </div>
     
-        <h3>Registers</h3>
-        <form action="sigin.html">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id=""><br>
-            <label for="mailid">Email-id</label>
-            <input type="email" name="mailid"><br>
-            <label for="password">password</label>
-            <input type="password" name="password"><br>
-            <label for="confirmpassword">confirm password</label>
-            <input type="password" name="confirmpassword"><br>
-            <button>Sign in</button>
-        </form>
+       
+           <div class="field">
+               <input type="text"required autocomplete="off" id="name" >
+               <label for="name" title="Name"></label>
+           </div>
+           <div class="field">
+               <input type="email" required autocomplete="off" id="email" placeholder="email">
+               <label for="email" title="email"></label>
+           </div>
+           <div class="field">
+               <input type="password" required autocomplete="off" id="password" >
+               <label for="password" title="password"></label>
+           </div>
+           <div class="field">
+               <input type="password" required autocomplete="off" id="confirm" >
+               <label for="confirm" title="confirm"></label>
+           </div>
+           <!-- <button>Register</button> -->
+       
+    </div>
+        <script src="Assets/js/jquery.min.js"></script>
+        <script>
+            $("#header").load("_header.html")
+        </script>
     </body>
 </html>
