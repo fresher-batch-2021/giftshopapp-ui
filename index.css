@@ -128,6 +128,16 @@ a{
     left: 9px;
     
 }
+/* for invalid input */
+.field .email input:not(:placeholder-shown):invalid +label::before{
+    line-height: 20px;
+    font-size: 12px;
+    top: -10px;
+    background: #fff;
+    padding: 0 6px;
+    left: 9px;
+    color: red;
+}
 .field{
     position: relative;
     
