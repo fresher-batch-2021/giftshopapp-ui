@@ -3,14 +3,27 @@
         <title>documents</title>
     </head>
     <body>
-        <form action="index.html">
-            <label for="email">E-mail</label>
-            <input type="email" name="email"><br>
-            <label for="password">password</label>
-            <input type="password" name="password">
-            <input type="submit" value="Sign in"><br>
-        </form>
-        <p><a href="Register.html">Register</a></p>
-        <p><a href="Forgot password">Forgot password</a></p><br>
+        <header id="header"></header>
+        <div  class="loginContainer">
+     
+                <div class="Reglogo">
+                <img src="Assets/Images/gift.png" alt="none">
+                <p>Gift Corner</p><br> 
+                </div>
+            <div class="field">
+                <input type="email" required autocomplete="off" id="email">
+                <label for="email" title="email"></label>
+            </div>
+            <div class="field">
+                <input type="password" required autocomplete="off" id password>
+                <label for="password" title="password"></label>
+            </div>
+            
+                 <p><a class="spl"  href="index.html">sigin</a></p>
+             
+    </div>
+
+        <script src="Assets/js/jquery.min.js"></script>
+        <script>$("#header").load("_header.html")</script>
     </body>
 </html>

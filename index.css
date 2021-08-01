@@ -5,6 +5,7 @@
 a{
     text-decoration: none;
     color: #D00000;
+    font-size: 20px;
 }
 
 .navbar {
@@ -95,7 +96,10 @@ a{
 /*Register page*/
 .RegisterContainer{
     border: 2px solid red;
+    border-radius: 8px;
     margin: 30px 500px 0px 500px;
+    padding-bottom: 40px;
+    position: relative;
 }
 .Reglogo{
     position: relative;
@@ -108,7 +112,7 @@ a{
     top: 8px;
 }
 .Reglogo p{
-    /* position: absolute; */
+    
     margin-left: 60px;
     width: 120px;
     padding-top: 27px;
@@ -127,7 +131,7 @@ a{
 .field{
     position: relative;
     
-    margin: 15px 20px 15px 20px ;
+    margin: 15px 20px 10px 20px ;
 }
 .field label::before{
     content: attr(title);
@@ -159,7 +163,34 @@ a{
 .field input:focus + label::before{
     color: blue;
 }
-.RegisterContainer button{
-    width: 100%;
+.RegisterContainer p a{
+    position: absolute;
+    bottom: 3%;
+    top: 88%;
+    left: 5.5%;
+    right: 5.5%;
+    padding: 7px 0px 10px 125px;
     background-color: red;
+    border-radius: 12px;
+    color: white;
+}
+/* login page */
+.loginContainer{
+    border: 2px solid red;
+    border-radius: 12px;
+    margin: 100px 500px 10px 500px;
+    padding-bottom: 40px;
+    position: relative;
+}
+.loginContainer p a{
+    position: absolute;
+    bottom: 2.8%;
+    top: 85%;
+    left: 5.5%;
+    right: 5.5%;
+    background-color: red;
+    border-radius: 8px;
+    color: white;
+    padding: 1.2% 0% 2% 36%;
+    /* margin: 7px 0px 10px 20px; */
 }
