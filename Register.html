@@ -1,42 +1,71 @@
-<html>
-    <head>
-        <!-- <link rel="stylesheet" href="index.css"> -->
-    </head>
-    <body>
-        <header id="header"></header>
-    <div class="RegisterContainer">
-     
-        <div class="Reglogo">
-        <img src="Assets/Images/gift.png" alt="none">
-        <p>Gift Corner</p><br> 
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
     
-       
-           <div class="field">
-               <input type="text"required autocomplete="off" id="name" >
-               <label for="name" title="Name"></label>
-           </div>
-           <div class="field">
-               <div class="email">
-               <input type="email" required autocomplete="off" id="email" placeholder="email">
-               <label for="email" title="email"></label>
-            </div>
-           </div>
-           <div class="field">
-               <input type="password" required autocomplete="off" id="password" >
-               <label for="password" title="password"></label>
-           </div>
-           <div class="field">
-               <input type="password" required autocomplete="off" id="confirm" >
-               <label for="confirm" title="confirm"></label>
-           </div>
-           <p><a href="sigin.html">Register</a></p>
-         
-           
+    <header id="header"></header>
+
+
+    <div class="Registercontainer">
+
+        <div class="Reglogo">
+            <img src="Assets/Images/gift.png" alt="">
+            <!-- <img class="regimg" src="Assets/Images/gift.png" alt=""> -->
+            <p>Gift corner</p><br>
         </div>
-        <script src="Assets/js/jquery.min.js"></script>
-        <script>
-            $("#header").load("_header.html")
-        </script>
-    </body>
+
+        <form onsubmit="register()">
+            <div class="field">
+                <input type="text"required autocomplete="off" id="name" >
+                <label for="name" title="Name"></label>
+            </div>
+            <div class="field">
+                <div class="email">
+                <input type="email" required autocomplete="off" id="email" placeholder="email">
+                <label for="email" title="email"></label>
+             </div>
+            </div>
+            <div class="field">
+                <input type="password" required autocomplete="off" id="password" >
+                <label for="password" title="password"></label>
+            </div>
+            <div class="field">
+                <input type="password" required autocomplete="off" id="confirm" >
+                <label for="confirm" title="confirm"></label>
+            </div>
+            <button type="submit">Register</button>
+ 
+        </form>
+
+    </div>
+
+<!-- java script -->
+
+    <script src="Assets/js/jquery.min.js"></script>
+    <script>
+        $("#header").load("header.html")
+        
+        function register(){
+            event.preventDefault();
+            const name = document.querySelector("#name").value;
+            const email = document.querySelector("#email").value;
+            const password = document.querySelector("#password").value;
+            const confirm = document.querySelector("#confirm").value;
+            let usrobj={
+                "name":name,
+                "email":email,
+                "password":password,
+                "confirm":confirm
+            }
+            console.log(usrobj);
+            alert("Registration is succesful");
+            window.location.href="login.html";
+        }
+    </script>
+</body>
 </html>
