@@ -42,7 +42,7 @@
     <script>
         $("#header").load("header.html")
 
-        var images =[{imageUrl:"add-user.png",name:"product1",price:"100"},{imageUrl:"choco.jpg"},{imageUrl:"doeramon.jpg"},{imageUrl:"gift.png"}];
+        var images =[{imageUrl:"add-user.png",name:"product1",price:"100"},{imageUrl:"choco.jpg",name:"product2",price:"200"},{imageUrl:"doeramon.jpg",name:"product3",price:"300"},{imageUrl:"gift.png",name:"product4",price:"400"}];
 
         let content="";
         for(let img of images ){
@@ -50,8 +50,8 @@
             content=content+`
             <div class="product">
                 <img class="productImg" src="Assets/Images/${img.imageUrl}" id="imgr1" alt="">
-                <p class="productName" id="namer1">product name</p>
-                <p class="productPrice" id="pricer1" >price</p>
+                <p class="productName" id="namer1">${img.name}</p>
+                <p class="productPrice" id="pricer1" >${img.price}</p>
             </div>`;
         }
         document.querySelector("#cont").innerHTML=content;
