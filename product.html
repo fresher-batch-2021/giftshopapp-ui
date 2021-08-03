@@ -13,25 +13,82 @@
 
     <h3>im in product</h3>
 
-    <div class="product">
+    <div class="product1">
             <ul>
-                <li>ring1</li>
-                <li>ring2</li>
+                <li><a href="productSpec.html">ring1</a></li>
+                <li><a href="productSpec.html">ring2</a></li>
                 
             </ul>
     </div>
+    <div class="productContainer" id="cont">
+        <!-- row 1 -->
+        <!-- <div class="productRow">
+            <div class="product">
+                <img class="productImg" src="Assets/Images/sampleimg.jpg" id="imgr1" alt="">
+                <p class="productName" id="namer1">product name</p>
+                <p class="productPrice" id="pricer1" >price</p>
+            </div> -->
+            
+        </div>
+
+    
+        
+        
+    </div>
     
 
-    <div class="product">
-        <ul>
-            <li>chocolate1</li>
-            <li>chocolate2</li>
-        </ul>
-    </div>
+    
     <script src="Assets/js/jquery.min.js"></script>
     <script>
         $("#header").load("header.html")
+
+        var images =[{imageUrl:"add-user.png",name:"product1",price:"100"},{imageUrl:"choco.jpg"},{imageUrl:"doeramon.jpg"},{imageUrl:"gift.png"}];
+
+        let content="";
+        for(let img of images ){
+
+            content=content+`
+            <div class="product">
+                <img class="productImg" src="Assets/Images/${img.imageUrl}" id="imgr1" alt="">
+                <p class="productName" id="namer1">product name</p>
+                <p class="productPrice" id="pricer1" >price</p>
+            </div>`;
+        }
+        document.querySelector("#cont").innerHTML=content;
+
     </script>
 </body>
 
 </html>
+<style>
+    .productRow{
+        
+    }
+    .product{
+        border: 2px solid red;
+        border-radius: 12px;
+        width: 200px; 
+        height: 300px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        padding: 8px;
+        display: inline-block;
+    }
+    .productImg{
+        width: 200px;
+        height: 230px;
+        border-radius:12px ;
+        border: 1px solid blue;
+        /* z-index: -1; */
+        /* margin: 5px; */
+        /* padding: 5px; */
+    }
+    .productName{
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .productPrice{
+
+        text-align: center;
+    }
+</style>

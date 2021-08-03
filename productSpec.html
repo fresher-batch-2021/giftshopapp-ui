@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <header id="header"></header>
+
+    <div class="productSpec">
+    <img src="Assets/Images/sample.jpg"  alt="">
+    <p>product name</p>
+    <br>
+    <p>product description......</p>
+        <form onsubmit="tocart()">
+            <button type="submit">add to cart</button>
+        </form>
+</div>
+    <!-- java script -->
+
+ 
+    <script src="Assets/js/jquery.min.js"></script>
+    <script>
+        $("#header").load("header.html");
+
+        function tocart(){
+        event.preventDefault();
+        alert("added to cart succesfully");
+        window.location.href="cart.html";
+        
+    }
+    
+    </script>
+</body>
+</html>
+
+<!-- css code add to index.css afterwards -->
+<style>
+.productSpec img{
+    width: 200px;
+    height: 300px;
+}
+.productSpec button{
+    background-color: red;
+}
+
+</style>

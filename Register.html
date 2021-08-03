@@ -62,10 +62,19 @@
                 "password":password,
                 "confirm":confirm
             }
+            // if name is valid or not
+            if(name==""||name==null||name.trim()==""){
+                alert("invalid name");
+            } 
+            if(password==confirm){
+                
             console.log(usrobj);
             alert("Registration is succesful");
             window.location.href="login.html";
-        }
+            }
+            else{
+            alert("password doesnot match");
+        }}
     </script>
 </body>
 </html>

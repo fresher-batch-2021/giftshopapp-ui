@@ -8,6 +8,16 @@ a{
     font-size: 20px;
    
 }
+button{
+    margin: 0px auto;
+    background: none;
+    color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
 /* navbar */
 .navbar{
     background-color: #bde0fe;
@@ -26,11 +36,15 @@ a{
     left: 58px;
     letter-spacing:4px;
 }
-.navlink{
+.navlinks{
+    position: absolute;
+    right: 10px;
+    top: 25px;
+}
+.navlink {
     display: inline-block;
     float: right;
-    margin-top: 30px;
-    margin-right: 10px;
+    padding: 2px 2px;
     font-size: 20px;
     color: blue;
 }
@@ -43,9 +57,7 @@ a{
 .navcontent li{
     font-size: 20px;
     float: left;
-    /* margin-right: 10px; */
     margin-left: 20px;
-    /* margin-top: 10px; */
     padding-left: 7px;
 }
 .navcontent li a:hover{
@@ -163,16 +175,9 @@ td{
 
 .Registercontainer button,.logincontainer button{
     display: block;
-    margin: 0px auto;
-    position: absolute;
-    background: none;
-    color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+   
 
+    position: absolute;
     background-color: red;
     color: white;
     margin-left: 20px;

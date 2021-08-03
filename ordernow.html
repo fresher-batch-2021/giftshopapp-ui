@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<header id="header"></header>
+
+<form onsubmit="ordernow()">
+    <label for="name">name</label>
+    <input type="text" name="name" id="name"><br>
+    <label for="phonenumber">phonenumber</label>
+    <input type="number" name="number" id="phonenumber"><br>
+    <label for="address">enter your address</label>
+    <input type="text" name="address" id="address">
+    <select name="district" id="district">
+        <option value="chennai">chennai</option>
+        <option value="coimbatore">coimbatore</option>
+        <option value="vellore">vellore</option>
+    </select>
+    <select name="payment" id="payment">
+        <option value="cash">pay on delivery</option>
+    </select>
+    <button style="background-color: red;" type="submit">order now</button>
+</form>
+
+<script src="Assets/js/jquery.min.js"></script>
+<script>
+    $("#header").load("header.html")
+    let valid =true;
+    function ordernow(){
+        event.preventDefault();
+        const name = document.querySelector("#name").value;
+        // const email = document.querySelector("#email").value;
+        const phonenumber =document.querySelector("#phonenumber").value;
+        const address = document.querySelector("#address").value;
+        const district = document.querySelector("#district").value;
+        const payment = document.querySelector("#payment").value;
+
+        let usrobj = {
+            "name" :name,
+            "phonenumber":phonenumber,
+            "address":address,
+            "district":district,
+            "payment":payment
+        };
+        // alert("hello");
+        if(name==null||name==""||name.trim()==""){
+            alert("name is no good");
+        }
+        else{
+        console.log(usrobj);
+        alert("name is good");
+        window.location.href="index.html";
+        }
+    }
+</script>
+</body>
+</html>
