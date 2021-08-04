@@ -6,6 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- css -->
+    <style>
+        .productRow{
+            
+        }
+        .product{
+            border: 2px solid red;
+            border-radius: 12px;
+            width: 200px; 
+            height: 300px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            padding: 8px;
+            display: inline-block;
+        }
+        .productImg{
+            width: 200px;
+            height: 230px;
+            border-radius:12px ;
+            border: 1px solid blue;
+            /* z-index: -1; */
+            /* margin: 5px; */
+            /* padding: 5px; */
+        }
+        .productName{
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .productPrice{
+    
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,13 +54,7 @@
             </ul>
     </div>
     <div class="productContainer" id="cont">
-        <!-- row 1 -->
-        <!-- <div class="productRow">
-            <div class="product">
-                <img class="productImg" src="Assets/Images/sampleimg.jpg" id="imgr1" alt="">
-                <p class="productName" id="namer1">product name</p>
-                <p class="productPrice" id="pricer1" >price</p>
-            </div> -->
+        
             
         </div>
 
@@ -42,9 +69,10 @@
     <script>
         $("#header").load("header.html")
 
-        var images =[{imageUrl:"add-user.png",name:"product1",price:"100"},{imageUrl:"choco.jpg",name:"product2",price:"200"},{imageUrl:"doeramon.jpg",name:"product3",price:"300"},{imageUrl:"gift.png",name:"product4",price:"400"}];
+        var images =[{imageUrl:"add-user.png",name:"product1",price:"100"},{imageUrl:"choco.jpg",name:"product2",price:"200"},{imageUrl:"doeramon.jpg",name:"product3",price:"300"},{imageUrl:"gift.png",name:"product4",price:"400"},{imageUrl:"doeramon.jpg",name:"product3",price:"300"}];
 
         let content="";
+        var count=0;
         for(let img of images ){
 
             content=content+`
@@ -53,42 +81,16 @@
                 <p class="productName" id="namer1">${img.name}</p>
                 <p class="productPrice" id="pricer1" >${img.price}</p>
             </div>`;
+            count=count+1;
+        if(count==4){
+            content=content+`<br>`;
+            count=0;
         }
+        }
+        
         document.querySelector("#cont").innerHTML=content;
 
     </script>
 </body>
 
 </html>
-<style>
-    .productRow{
-        
-    }
-    .product{
-        border: 2px solid red;
-        border-radius: 12px;
-        width: 200px; 
-        height: 300px;
-        margin-left: 10px;
-        margin-bottom: 10px;
-        padding: 8px;
-        display: inline-block;
-    }
-    .productImg{
-        width: 200px;
-        height: 230px;
-        border-radius:12px ;
-        border: 1px solid blue;
-        /* z-index: -1; */
-        /* margin: 5px; */
-        /* padding: 5px; */
-    }
-    .productName{
-        text-align: center;
-        margin-bottom: 5px;
-    }
-    .productPrice{
-
-        text-align: center;
-    }
-</style>
