@@ -19,6 +19,7 @@ button{
 	outline: inherit;
 }
 /* navbar */
+
 .navbar{
     background-color: #bde0fe;
     height: 60px;
@@ -43,7 +44,6 @@ button{
 }
 .navlink {
     display: inline-block;
-    float: right;
     padding: 2px 2px;
     font-size: 20px;
     color: blue;
@@ -86,7 +86,7 @@ td{
 /* product list */
 
 .product  li{
-    /* float: left; */
+    
     list-style: none;
     margin-left: 10px;
     font-size: 20px;
@@ -100,9 +100,7 @@ td{
     padding-bottom: 3%;
     
 }
-.Reglogo{
-    /* position: relative; */
-}
+
 
 .Reglogo img{
    
