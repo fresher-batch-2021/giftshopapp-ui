@@ -23,6 +23,9 @@ button{
 .navbar{
     background-color: #bde0fe;
     height: 60px;
+    /* //below t2o code to move the navbaar */
+    position: sticky; 
+    top: 0;
 }
 .navbar img{
     width: 45px;
@@ -48,6 +51,9 @@ button{
     font-size: 20px;
     color: blue;
 }
+.navcontent{
+    clear: both;
+}
 .navcontent ul{
     float: right;
     list-style: none;
@@ -69,6 +75,40 @@ button{
     box-shadow: 12px 10px 12px 1px rgba(49, 56, 59, 0.2);
     transform: translateY(-2px);
 }
+/* image slider */
+
+
+.slideshow-container {
+   max-width:99%;
+   height: 475px;
+   margin: 40px;
+   position: relative;
+   /* border-radius: 12px;  */
+  }
+  .slideshow-container img{
+  
+      height: 450px;
+      background-color: black;
+  } 
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .text {font-size: 11px}
+  }
+  .imgslide{
+    width: 100%;
+  border: 2px solid red;
+  border-radius: 200px;
+  }
+  /* image slider */
+
+
 /* index table */
 table{
     border: 2px solid red;
@@ -209,3 +249,5 @@ td{
     padding: 1.2% 0% 2% 36%;
     margin: 7px 0px 10px 20px; 
 }
+
+/* ordernow */

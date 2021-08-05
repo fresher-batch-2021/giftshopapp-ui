@@ -12,24 +12,25 @@
 
     <header id="header"></header>
 
-    <section>
+    <section class=""> 
+
+        <div class="Reglogo">
+            <img src="Assets/Images/gift.png" alt="none">
+            <p>Gift Corner</p><br>
+        </div>
 
         <form onsubmit="ordernow()">
-            <label for="name">name</label>
-            <input type="text" name="name" id="name"><br>
-            <label for="phonenumber">phonenumber</label>
-            <input type="number" name="number" id="phonenumber"><br>
-            <label for="address">enter your address</label>
-            <input type="text" name="address" id="address">
-            <select name="district" id="district">
-                <option value="chennai">chennai</option>
-                <option value="coimbatore">coimbatore</option>
-                <option value="vellore">vellore</option>
-            </select>
-            <select name="payment" id="payment">
-                <option value="cash">pay on delivery</option>
-            </select>
-            <button style="background-color: red;" type="submit">order now</button>
+            <div class="field">
+                <div class="name">
+                    <input type="name" required autocomplete="off" id="email">
+                    <label for="email" title="email"></label>
+                </div>
+            </div>
+            <div class="field">
+                <input type="password" required autocomplete="off" id="password">
+                <label for="password" title="password"></label>
+            </div>
+            <button type="submit">login</button>
         </form>
 
     </section>
