@@ -1,3 +1,4 @@
+
 *{
     margin: 0%;
     padding: 0%; 
@@ -22,37 +23,47 @@ button{
 
 .navbar{
     background-color: #bde0fe;
-    height: 60px;
+    height: 50px;
     /* //below t2o code to move the navbaar */
-    position: sticky; 
+    overflow: hidden;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    /* box-shadow: 0px 3px 2px 2px slateblue; */
 }
 .navbar img{
-    width: 45px;
-    height: 45px;
-    margin-top: 10px;
+    width: 40px;
+    height: 40px;
+    margin-top: 8px;
     margin-left: 12px;
 }
 .navbar p{
     font-size: 30px;
     position: absolute;
-    top: 20px;
+    top: 17px;
     left: 58px;
     letter-spacing:4px;
 }
 .navlinks{
     position: absolute;
     right: 10px;
-    top: 25px;
+    top: 2px;
 }
 .navlink {
     display: inline-block;
     padding: 2px 2px;
+    margin-top: 20px;
     font-size: 20px;
     color: blue;
 }
 .navcontent{
     clear: both;
+    position: fixed;
+    top: 50px;
+    border: 2px solid #bde0fe;
+    background-color: white;
+    width: 100%;
 }
 .navcontent ul{
     float: right;
@@ -75,6 +86,9 @@ button{
     box-shadow: 12px 10px 12px 1px rgba(49, 56, 59, 0.2);
     transform: translateY(-2px);
 }
+.spacing{
+    margin-top: 100px;
+}
 /* image slider */
 
 
@@ -83,12 +97,14 @@ button{
    height: 475px;
    margin: 40px;
    position: relative;
+   z-index: -1;
    /* border-radius: 12px;  */
   }
   .slideshow-container img{
   
       height: 450px;
-      background-color: black;
+      /* background-color: black; */
+      /* border: 2px solid red; */
   } 
   /* Fading animation */
   .fade {
@@ -102,11 +118,41 @@ button{
     .text {font-size: 11px}
   }
   .imgslide{
-    width: 100%;
-  border: 2px solid red;
-  border-radius: 200px;
+    width:100%;
+    margin-top: 80px;
+    /* top: 10%; */
+    /* height: 20%; */
+    /* top: 100%; */
+    /* height: 20px; */
+  border: 2px outset aquamarine;
+  border-radius: 20px;
+  box-shadow: 0px 10px 12px 2px cadetblue;
+  
   }
-  /* image slider */
+  .mySlides{
+    /* top: 10px; */
+    position: absolute;
+    top: -50px;
+    width: 100%;
+  }
+  /* image slider end */
+
+  .indexPara > h1{
+    
+      font-family: 'Style Script', cursive;
+      text-align: center;
+      font-size: 60px;
+      margin-top: 100px;
+      
+  }
+  .indexPara > p{
+      /* justify-content: center; */
+      text-align: center;
+      margin: 0px 20px;
+      font-size: 20px;
+      /* font-family: 'Style Script', cursive; */
+      font-family: 'Asar', serif;
+  }
 
 
 /* index table */
@@ -136,7 +182,7 @@ td{
     position: relative;
     border: 2px solid red;
     border-radius: 8px;
-    margin: 6% 35% 0% 35%;
+    margin: 10% 35% 0% 35%;
     padding-bottom: 3%;
     
 }
@@ -232,7 +278,7 @@ td{
 .logincontainer{
     border: 2px solid red;
     border-radius: 12px;
-    margin: 5% 35% 0% 35%;
+    margin: 12% 35% 0% 35%;
     padding-bottom: 40px;
     position: relative;
 }
