@@ -50,18 +50,20 @@
             else{
             if(password.trim() != ""){
 
-               const usrobj = {
+               const loginobj = {
                 "email": email,
-                "password": password };
+                "password": password 
+               };
 
                 //sending data to server
                 const url = "https://product-mock-api.herokuapp.com/giftshopapp/api/v1/auth/login";
 
                 console.log(usrobj);//for our verification
 
-                axios.post(url,usrobj).then(res=>{
+                axios.post(url,loginobj).then(res=>{
                     console.log(res);
 
+                    //to stay loged in
                     // let user = res.data;
                     // localStorage.setItem("LOGGED_IN_USER", JSON.stringify(user));
 
