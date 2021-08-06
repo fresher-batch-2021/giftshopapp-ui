@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Document</title>
 </head>
 
@@ -58,26 +62,48 @@
             const email = document.querySelector("#email").value;
             const password = document.querySelector("#password").value;
             const confirm = document.querySelector("#confirm").value;
-            let usrobj = {
-                "name": name,
-                "email": email,
-                "password": password,
-                "confirm": confirm
-            }
             // if name is valid or not
             if (name == "" || name == null || name.trim() == "") {
                 alert("invalid name");
             }
-            if (password == confirm) {
+            if (password.length < 8) {
+                alert("password is short");
+            }
 
-                console.log(usrobj);
-                alert("Registration is succesful");
-                window.location.href = "login.html";
-            }
-            else {
-                alert("password doesnot match");
-            }
-        }
+            else 
+                if (password != confirm) {
+                    alert("password doesnot match");
+                }
+                   
+                else {
+                     // backend
+                     let usrobj = {
+                        "name": name,
+                        "email": email,
+                        "password": password,
+                        "role": "USER"
+                    };
+
+                    console.log(usrobj); //for printing in console 
+
+                    const url = "https://product-mock-api.herokuapp.com/giftshopapp/api/v1/auth/register";//registration url
+                    axios.post(url, usrobj).then(res => {
+
+                        console.log(res);//printing in console // for user purpose
+                        alert("Registration is succesful");
+
+
+                        window.location.href = "login.html";
+                    }).catch(err => {
+                        console.error(err);
+                        alert("Unable to register");
+                    });
+
+                }
+                }
+        
+        
+        
     </script>
 </body>
 
