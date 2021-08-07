@@ -54,7 +54,7 @@
                 
             </ul>
     </div> -->
-    <div class="productContainer" id="cont">
+    <div class="productContainer" id="productContainer">
         <!-- product container in js -->
     </div>
     </div>
@@ -74,9 +74,9 @@
             content = content + `
             <div class="product">
                 <figure>
-                <img class="productImg" src="Assets/Images/${img.imageUrl}" id="imgr1" alt=""></figure>
-                <p class="productName" id="namer1">${img.name}</p>
-                <p class="productPrice" id="pricer1" >${img.price}</p>
+                <img class="productImg" src="Assets/Images/${img.imageUrl}" id="productImg" alt=""></figure>
+                <p class="productName" id="productName">${img.name}</p>
+                <p class="productPrice" id="productPrice" >${img.price}</p>
             </div>`;
             count = count + 1;
             if (count == 4) {
@@ -85,7 +85,7 @@
             }
         }
 
-        document.querySelector("#cont").innerHTML = content;
+        document.querySelector("#productContainer").innerHTML = content;
 
     </script>
 </body>

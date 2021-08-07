@@ -12,25 +12,35 @@
 
     <header id="header"></header>
 
-    <section class="">
+    <section class="orderPageContainer">
 
-        <div class="Reglogo">
-            <img src="Assets/Images/gift.png" alt="none">
+        <div class="regLogo">
+            <img src="Assets/Images/gift.png" alt="no image to show">
             <p>Gift Corner</p><br>
         </div>
 
         <form onsubmit="ordernow()">
             <div class="field">
                 <div class="name">
-                    <input type="name" required autocomplete="off" id="email">
-                    <label for="email" title="email"></label>
+                    <input type="name" required autocomplete="off" id="OrderPageName">
+                    <label for="OrderPageName" title="Name"></label>
                 </div>
             </div>
             <div class="field">
-                <input type="password" required autocomplete="off" id="password">
-                <label for="password" title="password"></label>
+                <input type="text" required autocomplete="off" id="OrderPageAddress">
+                <label for="OrderPageAddress" title="address"></label>
             </div>
-            <button type="submit">login</button>
+            <div class="field">
+                <input type="number" required  id="OrderPagePhoneNumber">
+                <label for="OrderPagePhoneNumber" title="phonenumber"></label>
+            </div>
+            <div class="field">
+                <select  id="orderPagePayment">
+                    <option value="cod">Cash On Delivery</option>
+                </select>
+            </div>
+            
+            <button type="submit">Order Now</button>
         </form>
 
     </section>
@@ -42,17 +52,15 @@
         let valid = true;
         function ordernow() {
             event.preventDefault();
-            const name = document.querySelector("#name").value;
+            const name = document.querySelector("#OrderPageName").value;
             const phonenumber = document.querySelector("#phonenumber").value;
-            const address = document.querySelector("#address").value;
-            const district = document.querySelector("#district").value;
-            const payment = document.querySelector("#payment").value;
+            const address = document.querySelector("#OrderPageAddress").value;
+            const payment = document.querySelector("#orderPagePayment").value;
 
             let usrobj = {
                 "name": name,
                 "phonenumber": phonenumber,
                 "address": address,
-                "district": district,
                 "payment": payment
             };
             // alert("hello");
@@ -61,8 +69,8 @@
             }
             else {
                 console.log(usrobj);
-                alert("name is good");
-                window.location.href = "index.html";
+                alert("ypur order is placed");
+                window.location.href = "product.html";
             }
         }
     </script>

@@ -19,6 +19,12 @@ button{
 	cursor: pointer;
 	outline: inherit;
 }
+/* to remove button slider in number input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 /* navbar */
 
 .navbar{
@@ -89,22 +95,21 @@ button{
 .spacing{
     margin-top: 100px;
 }
+/* -------------------------index Page------------- */
+
 /* image slider */
-
-
-.slideshow-container {
+.slideshow_container {
    max-width:99%;
    height: 475px;
    margin: 40px;
    position: relative;
    z-index: -1;
-   /* border-radius: 12px;  */
+
   }
-  .slideshow-container img{
+  .slideshow_container img{
   
       height: 450px;
-      /* background-color: black; */
-      /* border: 2px solid red; */
+      
   } 
   /* Fading animation */
   .fade {
@@ -117,26 +122,22 @@ button{
   @media only screen and (max-width: 300px) {
     .text {font-size: 11px}
   }
-  .imgslide{
+  .imgSlide{
     width:100%;
     margin-top: 80px;
-    /* top: 10%; */
-    /* height: 20%; */
-    /* top: 100%; */
-    /* height: 20px; */
   border: 2px outset aquamarine;
   border-radius: 20px;
   box-shadow: 0px 10px 12px 2px cadetblue;
   
   }
   .mySlides{
-    /* top: 10px; */
     position: absolute;
     top: -50px;
     width: 100%;
   }
   /* image slider end */
 
+  /* text in index page */
   .indexPara > h1{
     
       font-family: 'Style Script', cursive;
@@ -146,14 +147,11 @@ button{
       
   }
   .indexPara > p{
-      /* justify-content: center; */
       text-align: center;
       margin: 0px 20px;
       font-size: 20px;
-      /* font-family: 'Style Script', cursive; */
       font-family: 'Asar', serif;
   }
-
 
 /* index table */
 table{
@@ -168,7 +166,7 @@ th{
 td{
     border: 2px solid red;
 }
-/* product page */
+/* ---------------------product page------------ */
 /* product list */
 
 .product  li{
@@ -177,25 +175,19 @@ td{
     margin-left: 10px;
     font-size: 20px;
 }
-/* Register and login page */
-.Registercontainer{
-    position: relative;
-    border: 2px solid red;
-    border-radius: 8px;
-    margin: 10% 35% 0% 35%;
-    padding-bottom: 3%;
-    
-}
 
+/*------------- Register, login page and orderPage-----------  */
 
-.Reglogo img{
+/* common codes */
+
+.regLogo img{
    
     height: 45px;
     width: 45px;
     margin-left: 20px;
     margin-top: 10px;
 }
-.Reglogo p{
+.regLogo p{
     position: absolute;
     top: 30px;
     left: 70px;
@@ -257,10 +249,8 @@ td{
     color: blue;
 }
 
-.Registercontainer button,.logincontainer button{
+.RegisterContainer button,.loginContainer button,.orderPageContainer button{
     display: block;
-   
-
     position: absolute;
     background-color: red;
     color: white;
@@ -269,31 +259,38 @@ td{
     height: 30px;
     border-radius: 12px;
     padding-right: 2px;
-    
-    
-    
 }
 
+/* Registration page container */
+.RegisterContainer{
+    position: relative;
+    border: 2px solid red;
+    border-radius: 12px;
+    margin: 10% 35% 0% 35%;
+    padding-bottom: 3%;
+    
+}
 /* login page */
-.logincontainer{
+.loginContainer{
     border: 2px solid red;
     border-radius: 12px;
     margin: 12% 35% 0% 35%;
     padding-bottom: 40px;
     position: relative;
 }
-.loginContainer{
-    position: absolute;
-    align-items: center;
-    bottom: 2.8%;
-    top: 85%;
-    left: 5.5%;
-    right: 5.5%;
-    background-color: red;
-    border-radius: 8px;
-    color: white;
-    padding: 1.2% 0% 2% 36%;
-    margin: 7px 0px 10px 20px; 
+/* ordernow page */
+.orderPageContainer{
+    border: 2px solid red;
+    border-radius: 12px;
+    margin: 12% 35% 0% 35%;
+    padding-bottom: 40px;
+    position: relative;
 }
+
+
+
+
+
+
 
 /* ordernow */
