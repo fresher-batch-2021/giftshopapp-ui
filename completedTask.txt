@@ -1,1 +1,5 @@
-ordernow page naming conventions are over
+ordernow page naming conventions are over----------------completed
+make java script in seperate page------------------------completed
+make cart page with array
+integrate apis with product page
+integrate api with cart page

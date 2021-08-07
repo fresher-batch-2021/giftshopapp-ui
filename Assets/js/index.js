@@ -13,9 +13,7 @@
 
         function addSliderImages() {
 
-
             const slider = document.querySelector('.slideshow_container');//to place the html code in container
-
 
             for (let slide of slideData) {
                 let slideDiv = document.createElement('div');
@@ -23,28 +21,20 @@
 
                 slideDiv.innerHTML = `<img class="imgSlide" src="${slide}"/>`;
 
-
                 slider.appendChild(slideDiv);
-
             }
-
         }
-
 
         function showSlides() {
 
             slideIndex++;
             //    alert("showSlides"  + slideIndex);
 
-
             let mySlidesDiv = document.querySelectorAll('.mySlides');
-
             // Don't display images
             mySlidesDiv.forEach(divObj => {
                 divObj.style.display = "none";
             });
-
-
             //reset to 1st image
             if (slideIndex > mySlidesDiv.length) {
                 slideIndex = 1
@@ -57,6 +47,4 @@
         }
         addSliderImages();
         showSlides();
-
-
-        // image slider java script end
+ 
