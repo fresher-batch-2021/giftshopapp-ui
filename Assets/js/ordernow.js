@@ -13,7 +13,7 @@ let valid = true;
                 "address": address,
                 "payment": payment
             };
-            // alert("hello");
+
             if (name == null || name == "" || name.trim() == "") {
                 alert("name is no good");
             }

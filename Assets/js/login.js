@@ -1,5 +1,4 @@
 function login() {
-    let credi
     event.preventDefault();
     const email = document.querySelector("#loginEmail").value;
     const password = document.querySelector("#loginPassword").value;
