@@ -1,5 +1,5 @@
 // product spec page
-
+//-----------------------------------------------------------And this full page-------------------------
 function productSpec(){
     var Id= localStorage.getItem("productSpec");    
     // alert("showing id in product specific page");

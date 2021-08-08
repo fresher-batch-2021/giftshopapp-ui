@@ -42,6 +42,14 @@ function product(){
     })
 }
 // global variable id
+
+
+
+
+
+
+
+//----------------------------------------Agatiyar anna see this part-------------------------------
 let productId;
 function specOpen(ids){
     
