@@ -25,7 +25,7 @@ function productSpec(){
         
     
     });
-alert(datas.image_url);
+// alert(datas.image_url);
     var reset =0;
     localStorage.setItem("productSpec",reset);
 }
