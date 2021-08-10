@@ -3,13 +3,11 @@ function login() {
     const email = document.querySelector("#loginEmail").value;
     const password = document.querySelector("#loginPassword").value;
     
-    if(email ==""||email==null||email.trim()==""){
-        alert("invalid username");
-    }
-    else{
-    if(password.trim() != ""){
+switch(true){
+    case (email ==""||email==null||email.trim()==""):{alert("invalid username"); break;}
+    case (password.trim() == ""):{alert("password is invalid"); break;}
 
-       const loginobj = {
+    default :{const loginobj = {
         "email": email,
         "password": password 
        };
@@ -37,10 +35,5 @@ function login() {
                 alert("login failed");
                 }
         });
-    
     }
-    else{
-        alert("password is invalid");
-    }
-}
-}
+}}
