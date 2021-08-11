@@ -1,5 +1,8 @@
-let cartItems =[{cartno:1,cartProduct:"actiocomin",cartPrice:200,cartQuantity:1},{cartno:3,cartProduct:"doreamon",cartPrice:100,cartQuantity:3},{cartno:4,cartProduct:"quanthumRobot",cartPrice:500,cartQuantity:2}];
+
 // let cartItems=localStorage.getItem("cartElements");
+console.log(localStorage.getItem("cartElements"));
+let cartItems =[{name:"actiocomin",price:200,Qty:1},{name:"doreamon",price:100,Qty:3},{name:"quanthumRobot",price:500,Qty:2}];
+
 //starting of the html code for table
 let content =`<table>
 <caption>cart table</caption>
@@ -11,16 +14,18 @@ let content =`<table>
 </tr>`;
 
 let end =`</table>`;//end of table content
-
+var count=1;
 for(let items of cartItems){
+    
     content=content+`
     <tr>
-    <td>${items.cartno}</td>
-    <td><a href="productSpec.html">${items.cartProduct}</a></td>
-    <td>${items.cartPrice}</td>
-    <td>${items.cartQuantity}</td>
+    <td>${count}</td>
+    <td><a href="productSpec.html">${items.name}</a></td>
+    <td>${items.price}</td>
+    <td>${items.Qty}</td>
     <td><a href="">delete</a></td>
 </tr>`
+count++;
 }
 content=content+end;
 

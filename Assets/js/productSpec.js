@@ -9,20 +9,30 @@ function productSpec(){
     alert(Id);
     var url =`https://product-mock-api.herokuapp.com/giftshopapp/api/v1/products/${Id}`;//getting a specific data set
     axios.get(url).then(res =>{
-        console.log(res.data.image_url);
-        let datas =res.data;
-        alert((datas.image_url));
+        // console.log(res.data.image_url);
+
+        
+        let productObj =res.data;
+        alert((productObj.image_url));
+        const id=productObj.id;
+        const name=productObj.name;
+        const img_url=productObj.image_url;
+        const price=productObj.price;
+        const description=productObj.description;
+        let obj={id,name,img_url,price,description};
+        console.log(obj);
         let content =
-        `<img src="Assets/Images/${datas.image_url}" alt="">
-        <p>${datas.name}</p>
+        `<img src="Assets/Images/${img_url}" alt="">
+        <p>${name}</p>
         <br>
-        <p>${datas.price}</p>
+        <p>${price}</p>
         <br>
-        <p>${datas.description}</p>
-        <button onsubmit="toCart(${datas})">add to cart</button>
+        <p>${description}</p>
+        <button onclick="toCart(${id},'${name}','${img_url}',${price},'${description}')">add to cart</button>
         `;
+        // alert(productObj.name);
         document.querySelector(".productSpec").innerHTML=content;   
-            toCart(datas);
+            // toCart(datas);
     }).catch(err =>{
         alert(err.data);
     });
@@ -33,13 +43,34 @@ function productSpec(){
 
 
 // adding product to cart
-function toCart(datas){
+function toCart(id,name,img_url,price,description){
+   
+    
     
     
     let cartItemsStr=localStorage.getItem("cartElements");
     let cartItems = cartItemsStr != null ? JSON.parse(cartItemsStr):[];
-    cartItems.push({Id:datas.id,name:datas.name,price:datas.price,image_url:datas.image_url,description:datas.description, qty:1});
+    var qty=1;
+    
+
+    // If item already exist, update the quantity
+    let index = cartItems.findIndex(cartItems=>cartItems.id == id);
+    alert(index);
+    console.log(index);
+    if (index != -1){
+        let cartObj = cartItems[index];
+        console.log(cartObj);
+        cartObj.Qty++;
+        cartItems[index] = cartObj;
+ 
+    }
+    else{
+        // if item not exist, add new item to cart
+    let cartObj = {id:id, name:name, price:price, image_url:img_url, description:description, Qty:qty};
+    console.log(cartObj);
+    cartItems.push(cartObj);
+    }
+    
     localStorage.setItem("cartElements",JSON.stringify(cartItems));
-  
-    window.location.href="cart.html";
+    // window.location.href="cart.html";
 }
