@@ -6,14 +6,14 @@ function productSpec(){
     
     const param = new URLSearchParams(window.location.search.substr(1));
     var Id =parseInt(param.get("id"));
-    alert(Id);
+    // alert(Id);
     var url =`https://product-mock-api.herokuapp.com/giftshopapp/api/v1/products/${Id}`;//getting a specific data set
     axios.get(url).then(res =>{
         // console.log(res.data.image_url);
 
         
         let productObj =res.data;
-        alert((productObj.image_url));
+        // alert((productObj.image_url));
         const id=productObj.id;
         const name=productObj.name;
         const img_url=productObj.image_url;
@@ -54,8 +54,8 @@ function toCart(id,name,img_url,price,description){
     
 
     // If item already exist, update the quantity
-    let index = cartItems.findIndex(cartItems=>cartItems.id == id);
-    alert(index);
+    let index = cartItems.findIndex(cartItems=>cartItems.Id == id);
+    // alert(index);
     console.log(index);
     if (index != -1){
         let cartObj = cartItems[index];
@@ -66,11 +66,11 @@ function toCart(id,name,img_url,price,description){
     }
     else{
         // if item not exist, add new item to cart
-    let cartObj = {id:id, name:name, price:price, image_url:img_url, description:description, Qty:qty};
+    let cartObj = {Id:id,Name:name,Price:price,Image_url:img_url,Description:description,Qty:qty};
     console.log(cartObj);
     cartItems.push(cartObj);
     }
     
     localStorage.setItem("cartElements",JSON.stringify(cartItems));
-    // window.location.href="cart.html";
+    window.location.href="cart.html";
 }
