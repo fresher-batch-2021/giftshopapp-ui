@@ -1,26 +1,23 @@
 // product spec page
 
 function productSpec(){
-    // var Id = localStorage.getItem("productSpec");  
-    //to get data from url
     
+    // getting datas from url of the page
     const param = new URLSearchParams(window.location.search.substr(1));
     var Id =parseInt(param.get("id"));
-    // alert(Id);
-    var url =`https://product-mock-api.herokuapp.com/giftshopapp/api/v1/products/${Id}`;//getting a specific data set
+    
+    //getting a specific data set
+    var url =`https://product-mock-api.herokuapp.com/giftshopapp/api/v1/products/${Id}`;
     axios.get(url).then(res =>{
-        // console.log(res.data.image_url);
-
-        
+             
         let productObj =res.data;
-        // alert((productObj.image_url));
+        
         const id=productObj.id;
         const name=productObj.name;
         const img_url=productObj.image_url;
         const price=productObj.price;
         const description=productObj.description;
-        let obj={id,name,img_url,price,description};
-        console.log(obj);
+
         let content =
         `<img src="Assets/Images/${img_url}" alt="">
         <p>${name}</p>
@@ -30,11 +27,17 @@ function productSpec(){
         <p>${description}</p>
         <button onclick="toCart(${id},'${name}','${img_url}',${price},'${description}')">add to cart</button>
         `;
-        // alert(productObj.name);
+        
         document.querySelector(".productSpec").innerHTML=content;   
-            // toCart(datas);
+        
     }).catch(err =>{
-        alert(err.data);
+        console.log(err.resposnse.data);
+        if(err.resposnse.data){
+            alert(err.resposnse.data);
+        }
+        else{
+            alert("error in getting product");
+        }
     });
 
     

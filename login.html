@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- axios -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>login</title>
 </head>
 
 <body>
-    <header id="header"></header>
+    <header id="header"><!-- including header from js --></header>
 
     <section class="loginContainer">
 
+        <!-- top  -->
         <div class="regLogo">
             <img src="Assets/Images/gift.png" alt="none">
             <p>Gift Corner</p><br>
         </div>
+        <!-- body -->
         <form onsubmit="login()">
             <div class="field">
                 
@@ -27,7 +27,7 @@
             </div>
             <div class="field">
                 <input type="password" required autocomplete="off" id="loginPassword">
-                <label for="loginPassword" title="password"></label>
+                <label for="loginPassword" title="Password"></label>
             </div>
             <button type="submit">login</button>
         </form>
@@ -35,9 +35,10 @@
 
     </section>
     <!-- java script -->
-    <script src="Assets/js/jquery.min.js"></script>
-    <script src="Assets/js/header.js"></script>
-    <script src="Assets/js/login.js"></script>
+    <script src="Assets/js/jquery.min.js"></script><!--jquery-->
+    <script src="Assets/js/axios.min.js"></script> <!--axios--->
+    <script src="Assets/js/header.js"></script>    <!--header-->
+    <script src="Assets/js/login.js"></script>     <!--login--->
 </body>
 
 </html>

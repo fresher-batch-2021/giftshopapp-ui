@@ -169,11 +169,41 @@ td{
 /* ---------------------product page------------ */
 /* product list */
 
-.product  li{
-    
-    list-style: none;
+.product {
+    border: 2px solid red;
+    border-radius: 12px;
+    width: 200px;
+    height: 300px;
     margin-left: 10px;
-    font-size: 20px;
+    margin-bottom: 10px;
+    padding: 8px;
+    display: inline-block;
+}
+
+.productImg {
+    width: 200px;
+    height: 230px;
+    border-radius: 12px;
+    border: 1px solid blue;
+}
+
+.productName {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.productPrice {
+
+    text-align: center;
+}
+/*----------------------- productSpec page ------------------------*/
+.productSpec img {
+    width: 200px;
+    height: 300px;
+}
+
+.productSpec button {
+    background-color: red;
 }
 
 /*------------- Register, login page and orderPage-----------  */
@@ -201,7 +231,6 @@ td{
     background-color: #fff;
     padding: 0 6px;
     left: 9px;
-    
 }
 /* for invalid input */
 .field .email input:not(:placeholder-shown):invalid +label::before{
@@ -215,7 +244,6 @@ td{
 }
 .field{
     position: relative;
-    
     margin: 15px 20px 10px 20px ;
 }
 .field label::before{
@@ -259,6 +287,7 @@ td{
     height: 30px;
     border-radius: 12px;
     padding-right: 2px;
+    letter-spacing: 2px;
 }
 
 /* Registration page container */

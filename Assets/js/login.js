@@ -4,24 +4,24 @@ function login() {
     const password = document.querySelector("#loginPassword").value;
     
 switch(true){
-    case (email ==""||email==null||email.trim()==""):{alert("invalid username"); break;}
-    case (password.trim() == ""):{alert("password is invalid"); break;}
+    case email =="":{alert("email can't be empty");break;}
+    case email.trim()=="":{alert("email can't be full of spaces"); break;}
+    case (password.trim() == ""):{alert("password cab't be empty"); break;}
 
-    default :{const loginobj = {
+    default :{
+        const loginobj = {    
         "email": email,
         "password": password 
        };
 
         //sending data to server
         const url = "https://product-mock-api.herokuapp.com/giftshopapp/api/v1/auth/login";
-
         console.log(loginobj);//for our verification
 
         axios.post(url,loginobj).then(res=>{
-            console.log(res);
+            
 
             //to stay loged in
-            // let user = res.data;
             // localStorage.setItem("LOGGED_IN_USER", JSON.stringify(user));
 
             alert("login succesful");

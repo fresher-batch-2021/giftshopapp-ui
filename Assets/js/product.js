@@ -2,7 +2,7 @@
 function product() {
     
     var count = 0;
-    const url = ("https://product-mock-api.herokuapp.com/giftshopapp/api/v1/products");//url to get all element from server
+    const url = "https://product-mock-api.herokuapp.com/giftshopapp/api/v1/products";//url to get all element from server
     axios.get(url).then(res => {
 
         console.log(res.data);//to printing in console
@@ -18,7 +18,7 @@ function product() {
             <p class="productName" id="productName">${img.name}</p>
             <p class="productPrice" id="productPrice" >${img.price}</p>
             <p>${img.id}</p>
-            <button type="submit">add to cart</button>
+            <button type="submit" onClick="toCart(${img.id},'${img.name}','${img.image_url}','${img.price}','${img.description}')">add to cart</button>
             </form>
             </div>`;
             //for printing only 4 elements in a row

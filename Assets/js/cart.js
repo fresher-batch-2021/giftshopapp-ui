@@ -1,6 +1,8 @@
 function cartItems(){
-let cartItems=JSON.parse(localStorage.getItem("cartElements"));//parsing to json object
+    
+let cartItems=JSON.parse(localStorage.getItem("cartElements"));
 //starting of the html code for table
+
 let content =`<table>
 <caption>cart table</caption>
 <tr>
@@ -10,9 +12,10 @@ let content =`<table>
     <th id="cartQuantity">quantity</th>
 </tr>`;
 
-let end =`</table>`;//end of table content
+let end =`</table>`;
+//end of table content
 var count=1;
-alert(cartItems.length);
+
 for(let items of cartItems){
     
     content=content+`
@@ -26,7 +29,6 @@ for(let items of cartItems){
 count++;
 }
 content=content+end;
-
 document.querySelector(".cartData").innerHTML=content;//pasting the html data at .cartData class
 }
 

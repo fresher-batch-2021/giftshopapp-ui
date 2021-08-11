@@ -44,3 +44,18 @@
 .regLogo
 .registerName
 .registerEmail
+<!-------------------cart.html---------------------------->
+.cartData
+#cartNo
+#cartProduct
+#cartPrice
+#cartQuantity
+<!-------------------cart.js------------------------------>
+cartIteams() //adding data to cart
+deleteCartData(index)  //deleting
+<!-------------------index.js------------------------------>
+addSliderImages() //adding images in array
+showSlides()  //showing images in slider 
+<!-------------------product.js---------------------------->
+product(); //to display data in page
+toCart(id,name,img_url,price,description)//fot adding element to cart

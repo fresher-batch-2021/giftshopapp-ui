@@ -8,10 +8,10 @@ $("#header").load("header.html");
             const confirm = document.querySelector("#registerConfirm").value;
             //if name is valid or not
             if (name == "" || name == null || name.trim() == "") {
-                alert("invalid name");
+                alert("invalid not valid");
             }
             if (password.length < 8) {
-                alert("password is short");
+                alert("password is less than charectors");
             }
             else 
                 if (password != confirm) {
@@ -26,7 +26,7 @@ $("#header").load("header.html");
                         "role": "USER"
                     };
 
-                    console.log(registerObj); //for printing in console 
+                console.log(registerObj); //for printing in console 
 
               const url = "https://product-mock-api.herokuapp.com/giftshopapp/api/v1/auth/register";//registration url
               axios.post(url, registerObj).then(res => {
@@ -40,33 +40,4 @@ $("#header").load("header.html");
                     });
 
                 }
-                
-
-            //     switch(true){
-            //         case (name == "" || name == null || name.trim() == ""):{console.log("invalid name");break}
-            //         case (password.length < 8):{console.log("password is less than 8 charectors");break;}
-            //         case (password != confirm):{console.log("password doesn't match");break;}
-            //         default:{
-            //              // backend
-            //          let registerObj = {
-            //             "name": name,
-            //             "email": email,
-            //             "password": password,
-            //             "role": "USER"
-            //         };
-
-            //         console.log(registerObj); //for printing in console 
-
-            //   const url = "https://product-mock-api.herokuapp.com/giftshopapp/api/v1/auth/register";//registration url
-            //   axios.post(url, registerObj).then(res => {
-
-            //             console.log(res);//printing in console // for user purpose
-            //             alert("Registration is succesful");
-            //             window.location.href = "login.html";
-            //         }).catch(err => {
-            //             console.error(err);
-            //             alert("Unable to register");
-            //         });
-            //         }
-            //     }
             }
