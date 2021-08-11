@@ -1,5 +1,6 @@
 let cartItems =[{cartno:1,cartProduct:"actiocomin",cartPrice:200,cartQuantity:1},{cartno:3,cartProduct:"doreamon",cartPrice:100,cartQuantity:3},{cartno:4,cartProduct:"quanthumRobot",cartPrice:500,cartQuantity:2}];
-
+// let cartItems=localStorage.getItem("cartElements");
+//starting of the html code for table
 let content =`<table>
 <caption>cart table</caption>
 <tr>
@@ -9,7 +10,7 @@ let content =`<table>
     <th id="cartQuantity">quantity</th>
 </tr>`;
 
-let end =`</table>`;
+let end =`</table>`;//end of table content
 
 for(let items of cartItems){
     content=content+`
@@ -23,4 +24,4 @@ for(let items of cartItems){
 }
 content=content+end;
 
-document.querySelector(".cartData").innerHTML=content;
+document.querySelector(".cartData").innerHTML=content;//pasting the html data at .cartData class
