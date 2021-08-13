@@ -2,6 +2,7 @@
 let valid = true;
         function ordernow() {
             event.preventDefault();
+            localStorage.setItem("userData",JSON.stringify(res.data));
             const name = document.querySelector("#OrderPageName").value;
             const phonenumber = document.querySelector("#phonenumber").value;
             const address = document.querySelector("#OrderPageAddress").value;

@@ -19,11 +19,13 @@ switch(true){
 
         axios.post(url,loginobj).then(res=>{
             
-
+            let data=res.data;
             //to stay loged in
             // localStorage.setItem("LOGGED_IN_USER", JSON.stringify(user));
-            localStorage.setItem("userData",JSON.stringify(res.data));
+            localStorage.setItem("LOGGED_IN_USER",JSON.stringify(data));
             localStorage.setItem("isLoggedIn",true);
+            
+            
             alert("login succesful");
             window.location.href="index.html";
         }).catch(err=>{
