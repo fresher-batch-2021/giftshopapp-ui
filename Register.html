@@ -22,12 +22,12 @@
 
         <form onsubmit="register()">
             <div class="field">
-                <input type="text" required autocomplete="off" id="registerName">
+                <input type="text" required autocomplete="off" id="registerName" pattern="[a-zA-Z]{1,32}" maxlength="15" title="name should only be in alphabets">
                 <label for="registerName" title="Name"></label>
             </div>
             <div class="field">
                 <div class="email">
-                    <input type="email" required autocomplete="off" id="registerEmail" placeholder="email">
+                    <input type="email" required autocomplete="off" id="registerEmail" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  title="email should be appropiate with 25 charectors"> 
                     <label for="registerEmail" title="email"></label>
                 </div>
             </div>

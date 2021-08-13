@@ -2,6 +2,7 @@ $("#header").load("header.html");
 
         function register() {
             event.preventDefault();
+            
             const name = document.querySelector("#registerName").value;
             const email = document.querySelector("#registerEmail").value;
             const password = document.querySelector("#registerPassword").value;
@@ -10,8 +11,9 @@ $("#header").load("header.html");
             if (name == "" || name == null || name.trim() == "") {
                 alert("invalid not valid");
             }
-            if (password.length < 8) {
-                alert("password is less than charectors");
+            
+            else if (password.length < 8) {
+                alert("password is less than 8charectors");
             }
             else 
                 if (password != confirm) {
