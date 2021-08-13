@@ -13,19 +13,19 @@ function addSliderImages(){
 }
 //below code is move the slideshow images
 
-var slideIndex = 0;
+
 //to change image in slider change the data here 
 let slideData = ["Assets/Images/bc1.jpg", "Assets/Images/bc2.jpg", "Assets/Images/bc3.jpg"];
-
+var slideIndex = 0;
 function showSlides() {
 
     slideIndex++;
 
-    let mySlidesDiv = document.querySelectorAll('.mySlides');
+    let mySlidesDiv = <HTMLElement>document.querySelectorAll('.mySlides');
     // Don't display images while loading
     mySlidesDiv.forEach(divObj => {
         divObj.style.display = "none";
-    });
+    })</HTMLElement>;
 
     //reset to 1st image
     if (slideIndex > mySlidesDiv.length) {

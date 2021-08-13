@@ -59,3 +59,6 @@ showSlides()  //showing images in slider
 <!-------------------product.js---------------------------->
 product(); //to display data in page
 toCart(id,name,img_url,price,description)//fot adding element to cart
+
+<------------------------------------localstorage datas----------------------------->
+userData//for storing user credentials

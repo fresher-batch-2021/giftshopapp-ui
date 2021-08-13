@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- axios -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
 </head>
-
 <body>
-
-    <form onclick="onclick()">
-    <button type="button" onclick="onadd()">add to cart</button>
-    </form>
-
-
-    <script src="jquery.min.js"></script>
-    <script>
-function onadd(){
-alert("hi");
-}
-    </script>
+<p>The selected date is as follows: <input type="text" class="disableFuturedate"></p>
+<script>
+   $(document).ready(function () {
+      var currentDate = new Date();
+      $('.disableFuturedate').datepicker({
+      format: 'dd/mm/yyyy',
+      autoclose:true,
+      endDate: "currentDate",
+      maxDate: currentDate
+      }).on('changeDate', function (ev) {
+         $(this).datepicker('hide');
+      });
+      $('.disableFuturedate').keyup(function () {
+         if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9^-]/g, '');
+         }
+      });
+   });
+</script>
 </body>
 </html>
