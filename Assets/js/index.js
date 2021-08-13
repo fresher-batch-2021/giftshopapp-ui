@@ -21,11 +21,11 @@ function showSlides() {
 
     slideIndex++;
 
-    let mySlidesDiv = <HTMLElement>document.querySelectorAll('.mySlides');
+    let mySlidesDiv = document.querySelectorAll('.mySlides');
     // Don't display images while loading
     mySlidesDiv.forEach(divObj => {
         divObj.style.display = "none";
-    })</HTMLElement>;
+    })
 
     //reset to 1st image
     if (slideIndex > mySlidesDiv.length) {
