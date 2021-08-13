@@ -23,6 +23,7 @@ switch(true){
             //to stay loged in
             // localStorage.setItem("LOGGED_IN_USER", JSON.stringify(user));
             localStorage.setItem("userData",JSON.stringify(res.data));
+            localStorage.setItem("isLoggedIn",true);
             alert("login succesful");
             window.location.href="index.html";
         }).catch(err=>{
