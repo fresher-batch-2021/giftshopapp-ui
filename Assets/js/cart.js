@@ -16,19 +16,19 @@ let content =`<table>
 
 //end of table content
 var count=1;
-
+let  sum=0;
 for(let items of cartItems){
-    let sum=items.Price*items.Qty;
+    let total=items.Price*items.Qty;
     content=content+`
     <tr>
     <td>${count}</td>
     <td><a href="productSpec.html">${items.Name}</a></td>
     <td>${items.Price}</td>
     <td>${items.Qty}</td>
-    <td>${sum}</td>
-    <td><button type="submit" onclick="deleteCartData(${count})">delete</button></td>
+    <td>${total}</td>
+    <td><button type="submit" onclick="deleteCartData(${count-1})">delete</button></td>
 </tr>`;
-total=sum+total;
+sum=sum+total;
 count++;
 }
 let end =`
@@ -37,7 +37,7 @@ let end =`
 <td rowspan="5" class="totalRow" >total</td>
 
 
-<td rowspan="5">${total}</td></tr>
+<td rowspan="5">${sum}</td></tr>
 
 </table>`;
 content=content+end;
@@ -47,14 +47,16 @@ document.querySelector(".cartData").innerHTML=content;//pasting the html data at
 // deleting elements in cart
 function deleteCartData(index){
 var arr=JSON.parse(localStorage.getItem("cartElements"));
-// arr.splice(index-1,1);
+
 if(arr[index].Qty>1){
-    alert("greater");
+    
+    arr[index].Qty--;
 }
 else{
-    alert("lowwer");
+    
+    arr.splice(index,1);
 }
-console.log(arr[index-1]);
+console.log(arr[index]);
 localStorage.setItem("cartElements",JSON.stringify(arr));
 cartItems();
 }
