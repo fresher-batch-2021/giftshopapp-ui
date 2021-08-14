@@ -22,17 +22,17 @@
         <form onsubmit="ordernow()">
             <div class="field">
                 <div class="name">
-                    <input type="name" required autocomplete="off" id="OrderPageName">
-                    <label for="OrderPageName" title="Name"></label>
+                    <input type="name" required autocomplete="off" id="orderPageName">
+                    <label for="orderPageName" title="Name"></label>
                 </div>
             </div>
             <div class="field">
-                <input type="text" required autocomplete="off" id="OrderPageAddress">
-                <label for="OrderPageAddress" title="address"></label>
+                <input type="text" required autocomplete="off" id="orderPageAddress">
+                <label for="orderPageAddress" title="address"></label>
             </div>
             <div class="field">
-                <input type="number" required  id="OrderPagePhoneNumber">
-                <label for="OrderPagePhoneNumber" title="phonenumber"></label>
+                <input type="number" required  id="orderPagePhoneNumber"  pattern="[0-9]{10}">
+                <label for="orderPagePhoneNumber" title="phonenumber"></label>
             </div>
             <div class="field">
                 <select  id="orderPagePayment">

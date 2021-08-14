@@ -16,19 +16,19 @@ let content =`<table>
 
 //end of table content
 var count=1;
-let  sum=0;
+
 for(let items of cartItems){
-    let total=items.Price*items.Qty;
+    let sum=items.Price*items.Qty;
     content=content+`
     <tr>
     <td>${count}</td>
     <td><a href="productSpec.html">${items.Name}</a></td>
     <td>${items.Price}</td>
     <td>${items.Qty}</td>
-    <td>${total}</td>
+    <td>${sum}</td>
     <td><button type="submit" onclick="deleteCartData(${count})">delete</button></td>
 </tr>`;
-sum=sum+total;
+total=sum+total;
 count++;
 }
 let end =`
@@ -37,7 +37,7 @@ let end =`
 <td rowspan="5" class="totalRow" >total</td>
 
 
-<td rowspan="5">${sum}</td></tr>
+<td rowspan="5">${total}</td></tr>
 
 </table>`;
 content=content+end;
