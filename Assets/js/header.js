@@ -3,12 +3,13 @@
 $("#header").load("header.html");
 function isLoggedIn(){
     let content="";
-    let login=localStorage.getItem("IsLoggedIn");
+    let login=JSON.parse(localStorage.getItem("IsLoggedIn"));
     if(login==null||login==undefined){login=false;}
+    
     if(login){
         content=`
-        <a class="navlink" href="login.html">logout</a>
-        <a class="navlink" href="Register.html">Register</a>
+        <a class="navlink" onClick="logout()">logout</a>
+        
         `;
 
     }
@@ -21,4 +22,9 @@ function isLoggedIn(){
     }
     document.querySelector(".navlinks").innerHTML=content;
 }
-isLoggedIn();
+function logout(){
+    
+    localStorage.setItem("IsLoggedIn",false);
+    window.location.href="index.html";
+}
+

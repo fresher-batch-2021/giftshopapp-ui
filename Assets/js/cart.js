@@ -33,12 +33,12 @@ count++;
 }
 let end =`
 <tr>
+<td></td>
+<td rowspan="5" class="totalRow" >total</td>
 
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>${sum}</td></tr>
+
+<td rowspan="5">${sum}</td></tr>
+
 </table>`;
 content=content+end;
 document.querySelector(".cartData").innerHTML=content;//pasting the html data at .cartData class
@@ -47,7 +47,13 @@ document.querySelector(".cartData").innerHTML=content;//pasting the html data at
 // deleting elements in cart
 function deleteCartData(index){
 var arr=JSON.parse(localStorage.getItem("cartElements"));
-arr.splice(index-1,1);
+// arr.splice(index-1,1);
+if(arr[index].Qty>1){
+    alert("greater");
+}
+else{
+    alert("lowwer");
+}
 console.log(arr[index-1]);
 localStorage.setItem("cartElements",JSON.stringify(arr));
 cartItems();
