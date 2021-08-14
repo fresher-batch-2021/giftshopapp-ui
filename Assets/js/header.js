@@ -1,17 +1,17 @@
 
 //linking the header file
 $("#header").load("header.html");
+$("#footer").load("footer.html");
+let login=JSON.parse(localStorage.getItem("IsLoggedIn"));
 function isLoggedIn(){
     let content="";
-    let login=JSON.parse(localStorage.getItem("IsLoggedIn"));
+    
     if(login==null||login==undefined){login=false;}
     
     if(login){
         content=`
         <a class="navlink" onClick="logout()">logout</a>
-        
         `;
-
     }
     else{
         content=`
@@ -25,6 +25,18 @@ function isLoggedIn(){
 function logout(){
     
     localStorage.setItem("IsLoggedIn",false);
+    localStorage.removeItem("cartElements");
+    localStorage.removeItem("totalAmount");
     window.location.href="index.html";
+}
+
+
+function loginCheck(){
+    
+if(JSON.parse(localStorage.getItem("IsLoggedIn"))==false){
+alert("can't do that need to login first");
+window.location.href="login.html";
+return false;
+}
 }
 

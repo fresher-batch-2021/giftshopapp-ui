@@ -318,3 +318,11 @@ td{
 }
 
 /* ordernow */
+
+
+
+/* footer */
+.footerBase{
+    background-color: aquamarine;
+    height: 250px;
+}

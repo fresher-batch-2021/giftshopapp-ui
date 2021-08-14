@@ -1,4 +1,6 @@
-function login() {
+
+function loginPage() {
+    alert("login");
     event.preventDefault();
     const email = document.querySelector("#loginEmail").value;
     const password = document.querySelector("#loginPassword").value;
@@ -23,6 +25,7 @@ switch(true){
             //to stay loged in
             // localStorage.setItem("LOGGED_IN_USER", JSON.stringify(user));
             localStorage.setItem("LOGGED_IN_USER",JSON.stringify(data));
+            
             localStorage.setItem("IsLoggedIn",true);
             
             

@@ -1,5 +1,7 @@
+
 function cartItems(){
-    
+    let x=loginCheck();
+    if(x==false){return;}
 let cartItems=JSON.parse(localStorage.getItem("cartElements"));
 //starting of the html code for table
 
@@ -13,6 +15,8 @@ let content =`<table>
     <th id="cartTotal">Total</th>
 </tr>`;
 
+alert(cartItems); 
+console.log(cartItems);  
 
 //end of table content
 var count=1;
@@ -28,6 +32,7 @@ for(let items of cartItems){
     <td>${total}</td>
     <td><button type="submit" onclick="deleteCartData(${count-1})">delete</button></td>
 </tr>`;
+alert("cart");
 sum=sum+total;
 count++;
 }
@@ -39,7 +44,12 @@ let end =`
 
 <td rowspan="5">${sum}</td></tr>
 
-</table>`;
+</table>
+
+<button type="button" onClick="cartCheck()">orderNow</button>
+<p><a href="product.html">continue shopping</a></p>
+`;
+localStorage.setItem("totalAmount",sum);
 content=content+end;
 document.querySelector(".cartData").innerHTML=content;//pasting the html data at .cartData class
 }
@@ -59,5 +69,15 @@ else{
 console.log(arr[index]);
 localStorage.setItem("cartElements",JSON.stringify(arr));
 cartItems();
+}
+function cartCheck(){
+    let cartItem=JSON.parse(localStorage.getItem("cartElements"));
+    if(cartItem==null||cartItem==""){
+        alert("cant order when cart is empty ");
+        window.location.href="product.html";
+    }
+    else{
+        window.location.href="ordernow.html";
+    }
 }
 cartItems();

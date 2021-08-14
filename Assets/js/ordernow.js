@@ -4,36 +4,66 @@ let valid = true;
 document.querySelector("#orderPageName").value=JSON.parse(localStorage.getItem("LOGGED_IN_USER")).name;
 
 let oderingProducts=JSON.parse(localStorage.getItem("cartElements"));
-        function ordernow() {
-            alert("he;lo");
+
+alert("jkdf")
+        function orderNow() {
+            alert("hello");
+            let today=new Date();
+            
+            let delivereyDate=addDays(today,10);            
+            let totalAmount=localStorage.getItem("totalAmount");
             event.preventDefault();
             
             
 
             const name = document.querySelector("#orderPageName").value;
-            const phonenumber = document.querySelector("#phonenumber").value;
+            const phonenumber = document.querySelector("#orderPagePhoneNumber").value;
             const address = document.querySelector("#orderPageAddress").value;
             const payment = document.querySelector("#orderPagePayment").value;
-
-            let usrobj = {
+            let products=JSON.parse(localStorage.getItem("cartElements"));
+            let productDetail={
+                customerName:name,
+                customerNumber:phonenumber,
+                customerAddress:address,
+                payment:payment,
+                products:products
+            }
+            console.log(productDetail);
+            let orderObj = {
                 applicationName: "giftshop",
-                totalAmount: 3500,
-                orderedDate: "2021-08-13T16:56:33.000Z",
+                totalAmount: totalAmount,
+                orderedDate:today,
                 status: "ORDERED",
-                address: "no.2 chennai",
-                comments: null,
-                createdDate: "2021-08-13T22:26:32.000Z",
+                address: address,
+                comments: JSON.stringify(productDetail),
+                createdDate: today,
                 modifiedDate: "2021-08-13T22:26:32.000Z",
-                deliveredDate: null,
+                deliveredDate: delivereyDate,
                 cancelledDate: null
             };
+            console.log(orderObj);
 
-            if (name == null || name == "" || name.trim() == "") {
-                alert("name is no good");
+                console.log(orderObj);
+                const url="https://product-mock-api.herokuapp.com/orderapp/api/v1/orders?applicationName=giftshop";              
+              alert("hi");
+                axios.post(url,orderObj).then(res=>{
+                    let data=res.data;
+                    console.log(data);
+                    alert("order has been placed succefully");
+                    localStorage.removeItem("cartElements");
+                    window.location.href="product.html";
+                }).catch(err=>{
+                    alert("can't placed the order");
+                });
+                
             }
-            else {
-                console.log(usrobj);
-                alert("ypur order is placed");
-                window.location.href = "product.html";
-            }
-        }
+        
+
+            // adding days to delvier
+            function addDays(date, days) {
+                const copy = new Date(Number(date))
+                copy.setDate(date.getDate() + days)
+                return copy
+              }
+              
+            

@@ -48,7 +48,8 @@ function productSpec(){
 // adding product to cart
 function toCart(id,name,img_url,price,description){
    
-    
+    let x=loginCheck();
+    if(x==false)return;
     
     
     let cartItemsStr=localStorage.getItem("cartElements");
