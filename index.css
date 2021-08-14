@@ -323,6 +323,9 @@ td{
 
 /* footer */
 .footerBase{
-    background-color: aquamarine;
-    height: 250px;
+    width: 100%;
+    background-color: gray;
+    height: 70px;
+    position: absolute;
+    bottom: 0;
 }

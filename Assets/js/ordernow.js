@@ -20,6 +20,10 @@ alert("jkdf")
             const phonenumber = document.querySelector("#orderPagePhoneNumber").value;
             const address = document.querySelector("#orderPageAddress").value;
             const payment = document.querySelector("#orderPagePayment").value;
+            if(phonenumber.length!=10){
+                alert("phonenumber should be 10 numbers");
+                return;
+            }
             let products=JSON.parse(localStorage.getItem("cartElements"));
             let productDetail={
                 customerName:name,
