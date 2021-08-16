@@ -70,6 +70,7 @@ console.log(arr[index]);
 localStorage.setItem("cartElements",JSON.stringify(arr));
 cartItems();
 }
+
 function cartCheck(){
     let cartItem=JSON.parse(localStorage.getItem("cartElements"));
     if(cartItem==null||cartItem==""){

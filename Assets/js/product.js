@@ -13,9 +13,12 @@ function product() {
             content = content + `<div class="product" id="${img.id}">
             <form action="cart.html">
             <a href="ProductSpec.html?id=${img.id}">
-            <img class="productImg" src="Assets/Images/${img.image_url}"  id="productImg" alt="">    
+            <figure>
+            <img class="productImg" src="Assets/Images/${img.image_url}"  id="productImg" alt=""> 
+            <figcaption>${img.name}</figcaption>
+            </figure>
             </a>
-            <p class="productName" id="productName">${img.name}</p>
+           
             <p class="productPrice" id="productPrice" >${img.price}</p>
             <p>${img.id}</p>
             <button type="submit" onClick="toCart(${img.id},'${img.name}','${img.image_url}','${img.price}','${img.description}')">add to cart</button>
