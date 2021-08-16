@@ -44,7 +44,6 @@ switch(true){
                            localStorage.setItem("IsLoggedIn",true);                           
                            alert("login succesful");
                            window.location.href="index.html";
-               
                        }
 
                     }).catch(err=>{

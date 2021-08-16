@@ -1,7 +1,6 @@
 
 function cartItems(){
-    let x=loginCheck();
-    if(x==false){return;}
+    
 let cartItems=JSON.parse(localStorage.getItem("cartElements"));
 //starting of the html code for table
 
