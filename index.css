@@ -9,6 +9,9 @@ a{
     font-size: 20px;
    
 }
+body{
+    position: relative;
+}
 button{
     margin: 0px auto;
     background: none;
@@ -322,10 +325,15 @@ td{
 
 
 /* footer */
-.footerBase{
-    width: 100%;
-    background-color: gray;
-    height: 70px;
-    position: absolute;
-    bottom: 0;
+#footer{
+    
+    position: fixed;
+    bottom: 0px;
+    right: 0;
+    left: 0;
+    height: 50px;
+    padding: .5rem;
+    text-align: center;
+    background-color: coral;
+    
 }

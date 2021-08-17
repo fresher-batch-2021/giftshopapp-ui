@@ -15,7 +15,7 @@ let content =`<table>
     <th id="cartTotal">Total</th>
 </tr>`;
 
-alert(cartItems); 
+
 console.log(cartItems);  
 
 //end of table content
@@ -32,7 +32,7 @@ for(let items of cartItems){
     <td>${total}</td>
     <td><button type="submit" onclick="deleteCartData(${count-1})">delete</button></td>
 </tr>`;
-alert("cart");
+
 sum=sum+total;
 count++;
 }

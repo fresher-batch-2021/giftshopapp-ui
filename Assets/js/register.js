@@ -13,7 +13,7 @@ $("#header").load("header.html");
             }
             
             else if (password.length < 8) {
-                alert("password is less than 8charectors");
+                alert("password is less than 8 characters");
             }
             else 
                 if (password != confirm) {
