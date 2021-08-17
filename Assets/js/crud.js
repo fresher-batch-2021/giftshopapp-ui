@@ -16,18 +16,19 @@ const basicAuth='Basic '+btoa(dbUserName+':'+dbPassword);
             email:email,
             password:password
         },
-        fields:["id"]
+        fields:["id","name","email"]
         };
-        return axios.post(url,requestData,{headers:{Authorization:basicAuth}})
+         axios.post(url,requestData,{headers:{Authorization:basicAuth}})
         .then(res=>{
-            let data=res.data.docs;
+            let data=res.data.docs[0];
+            console.log("yesh"+data.name);
             
                        if(data.length==0){
                            alert("Invalid credentials");
                            return "Invalid credentials";
                        }
                        else{
-                           const user= data[0];
+                           const user= data;
                            localStorage.setItem("LOGGED_IN_USER",JSON.stringify(data));
                            localStorage.setItem("IsLoggedIn",true);                           
                            alert("login succesful");
@@ -76,6 +77,13 @@ const basicAuth='Basic '+btoa(dbUserName+':'+dbPassword);
         const url=endpoint+database+endUrl;
        return axios.get(url,{headers:{Authorization:basicAuth}});
        
+    }
+
+    // find data
+    static findData(database,id){
+        const url= endpoint+database+"/"+id;
+        
+        return axios.get(url,{headers:{Authorization:basicAuth}});
     }
     
     

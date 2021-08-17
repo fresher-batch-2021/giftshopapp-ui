@@ -22,13 +22,13 @@ console.log(cartItems);
 var count=1;
 let  sum=0;
 for(let items of cartItems){
-    let total=items.Price*items.Qty;
+    let total=items.price*items.qty;
     content=content+`
     <tr>
     <td>${count}</td>
-    <td><a href="productSpec.html">${items.Name}</a></td>
-    <td>${items.Price}</td>
-    <td>${items.Qty}</td>
+    <td><a href="productSpec.html">${items.productName}</a></td>
+    <td>${items.price}</td>
+    <td>${items.qty}</td>
     <td>${total}</td>
     <td><button type="submit" onclick="deleteCartData(${count-1})">delete</button></td>
 </tr>`;
@@ -58,9 +58,9 @@ document.querySelector(".cartData").innerHTML=content;//pasting the html data at
 function deleteCartData(index){
 var arr=JSON.parse(localStorage.getItem("cartElements"));
 
-if(arr[index].Qty>1){
+if(arr[index].qty>1){
     
-    arr[index].Qty--;
+    arr[index].qty--;
 }
 else{
     

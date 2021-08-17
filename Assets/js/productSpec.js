@@ -4,20 +4,20 @@ function productSpec(){
     
     // getting datas from url of the page
     const param = new URLSearchParams(window.location.search.substr(1));
-    var Id =parseInt(param.get("id"));
+    let Id =param.get("id");
     
-    //getting a specific data set
-    var url =`https://product-mock-api.herokuapp.com/giftshopapp/api/v1/products/${Id}`;
-    axios.get(url).then(res =>{
-             
-        let productObj =res.data;
-        
-        const id=productObj.id;
-        const name=productObj.name;
-        const img_url=productObj.image_url;
-        const price=productObj.price;
-        const description=productObj.description;
 
+    crud.findData("giftshop_products",Id).then(res =>{
+        let value =res.data;
+    
+        
+        const id=value._id;
+        const name=value.name;
+        const img_url=value.imageUrl;
+        const price=value.price;
+        const description=value.description;
+alert("hi"+id);
+        
         let content =
         `<img src="Assets/Images/${img_url}" alt="">
         <p>${name}</p>
@@ -28,17 +28,22 @@ function productSpec(){
         <button onclick="toCart(${id},'${name}','${img_url}',${price},'${description}')">add to cart</button>
         `;
         
-        document.querySelector(".productSpec").innerHTML=content;   
-        
-    }).catch(err =>{
+        document.querySelector(".productSpec").innerHTML=content;  
+
+    }).catch(err=>{
+        alert("failed on getting data");
         console.log(err.resposnse.data);
-        if(err.resposnse.data){
-            alert(err.resposnse.data);
-        }
-        else{
-            alert("error in getting product");
-        }
     });
+
+
+
+
+
+
+    //getting a specific data set
+    
+        
+
 
     
     
@@ -58,13 +63,13 @@ function toCart(id,name,img_url,price,description){
     
 
     // If item already exist, update the quantity
-    let index = cartItems.findIndex(cartItems=>cartItems.Id == id);
-    // alert(index);
+    let index = cartItems.findIndex(cartItems=>cartItems.id == id);
+    alert(index);
     console.log(index);
     if (index != -1){
         let cartObj = cartItems[index];
         console.log(cartObj);
-        cartObj.Qty++;
+        cartObj.qty++;
         cartItems[index] = cartObj;
  
     }

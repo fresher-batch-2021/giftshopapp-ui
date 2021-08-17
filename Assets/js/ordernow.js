@@ -1,6 +1,8 @@
 //order now page
 let valid = true;
 //to place user detail on ordernow page
+
+console.log(JSON.parse(localStorage.getItem("LOGGED_IN_USER")).name);
 document.querySelector("#orderPageName").value=JSON.parse(localStorage.getItem("LOGGED_IN_USER")).name;
 
 let oderingProducts=JSON.parse(localStorage.getItem("cartElements"));
