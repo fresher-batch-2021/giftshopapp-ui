@@ -7,13 +7,13 @@ document.querySelector("#orderPageName").value=JSON.parse(localStorage.getItem("
 
 let oderingProducts=JSON.parse(localStorage.getItem("cartElements"));
 
-alert("jkdf")
+
         function orderNow() {
-            alert("hello");
-            let today=new Date();
+    
             
-            let delivereyDate=addDays(today,10);            
-            let totalAmount=localStorage.getItem("totalAmount");
+            
+                       
+            
             event.preventDefault();
             
             
@@ -22,26 +22,28 @@ alert("jkdf")
             const phonenumber = document.querySelector("#orderPagePhoneNumber").value;
             const address = document.querySelector("#orderPageAddress").value;
             const payment = document.querySelector("#orderPagePayment").value;
+
+            let today=new Date();
+            let delivereyDate=addDays(today,10); 
+            let totalAmount=localStorage.getItem("totalAmount");
+
             if(phonenumber.length!=10){
                 alert("phonenumber should be 10 numbers");
                 return;
             }
             let products=JSON.parse(localStorage.getItem("cartElements"));
-            let productDetail={
-                customerName:name,
-                customerNumber:phonenumber,
-                customerAddress:address,
-                payment:payment,
-                products:products
-            }
-            console.log(productDetail);
+            
+            
             let orderObj = {
-                applicationName: "giftshop",
+                name: name,
+                address:address,
+                phonenumber:phonenumber,
+                products:products,
+                payment:payment,
                 totalAmount: totalAmount,
-                orderedDate:today,
                 status: "ORDERED",
-                address: address,
-                comments: JSON.stringify(productDetail),
+                comments: "no comments",
+                orderedDate:today,
                 createdDate: today,
                 modifiedDate: "2021-08-13T22:26:32.000Z",
                 deliveredDate: delivereyDate,
@@ -49,18 +51,31 @@ alert("jkdf")
             };
             console.log(orderObj);
 
-                console.log(orderObj);
-                const url="https://product-mock-api.herokuapp.com/orderapp/api/v1/orders?applicationName=giftshop";              
-              alert("hi");
-                axios.post(url,orderObj).then(res=>{
-                    let data=res.data;
-                    console.log(data);
-                    alert("order has been placed succefully");
-                    localStorage.removeItem("cartElements");
-                    window.location.href="product.html";
-                }).catch(err=>{
-                    alert("can't placed the order");
-                });
+            let orderDetail=crud.addData(orderObj,"giftshop_orders");
+
+            orderDetail.then(res=>{
+                console.log(res.date);
+                localStorage.setItem("cartElements",null);
+                localStorage.setItem("totalAmount",null);
+                alert("your order has been plcaed successfully");
+                window.location.href="product.html";
+            }).catch(err=>{
+                alert("an error has occured");
+                console.log(err.response.data);
+            });
+
+            //     console.log(orderObj);
+            //     const url="https://product-mock-api.herokuapp.com/orderapp/api/v1/orders?applicationName=giftshop";              
+            //   alert("hi");
+            //     axios.post(url,orderObj).then(res=>{
+            //         let data=res.data;
+            //         console.log(data);
+            //         alert("order has been placed succefully");
+            //         localStorage.removeItem("cartElements");
+            //         window.location.href="product.html";
+            //     }).catch(err=>{
+            //         alert("can't placed the order");
+            //     });
                 
             }
         

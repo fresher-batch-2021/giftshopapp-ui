@@ -23,8 +23,8 @@ function product() {
             </a>
            
             <p class="productPrice" id="productPrice" >${img.price}</p>
-            <p>${img._id}</p>
-            <button type="submit" onClick="toCart('${img._id}','${img.name}','${img.imageUrl}','${img.price}','${img.description}')">add to cart</button>
+            
+            <button type="submit" onclick="toCart('${img._id}','${img.name}','${img.imageUrl}','${img.price}','${img.description}')">add to cart</button>
             </form>
             </div>`;
             //for printing only 4 elements in a row

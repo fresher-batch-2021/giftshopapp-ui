@@ -16,7 +16,7 @@ function productSpec(){
         const img_url=value.imageUrl;
         const price=value.price;
         const description=value.description;
-alert("hi"+id);
+
         
         let content =
         `<img src="Assets/Images/${img_url}" alt="">
@@ -25,7 +25,7 @@ alert("hi"+id);
         <p>${price}</p>
         <br>
         <p>${description}</p>
-        <button onclick="toCart(${id},'${name}','${img_url}',${price},'${description}')">add to cart</button>
+        <button onclick="toCart('${id}','${name}','${img_url}',${price},'${description}')">add to cart</button>
         `;
         
         document.querySelector(".productSpec").innerHTML=content;  
@@ -56,15 +56,14 @@ function toCart(id,name,img_url,price,description){
     let x=loginCheck();
     if(x==false)return;
     
-    
+     
     let cartItemsStr=localStorage.getItem("cartElements");
     let cartItems = cartItemsStr != null ? JSON.parse(cartItemsStr):[];
     var qty=1;
     
-
+    
     // If item already exist, update the quantity
     let index = cartItems.findIndex(cartItems=>cartItems.id == id);
-    alert(index);
     console.log(index);
     if (index != -1){
         let cartObj = cartItems[index];
