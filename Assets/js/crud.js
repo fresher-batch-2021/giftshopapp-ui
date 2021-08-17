@@ -7,8 +7,8 @@ const basicAuth='Basic '+btoa(dbUserName+':'+dbPassword);
 
  class crud{
     // login user
-    static Login(email,password){
-        alert("hello");
+    static login(email,password){
+        
         const url ='https://75b0afe3-3fa7-477b-8352-bdcfcd522a16-bluemix.cloudantnosqldb.appdomain.cloud/giftshop_user/_find';
         let requestData = 
         {

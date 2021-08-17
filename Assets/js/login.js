@@ -1,6 +1,6 @@
 
 function loginPage() {
-    alert("login");
+    
     event.preventDefault();
     const email = document.querySelector("#loginEmail").value;
     const password = document.querySelector("#loginPassword").value;
@@ -10,9 +10,9 @@ switch(true){
     case (password.trim() == ""):{alert("password cab't be empty"); break;}
 
     default :{
-        alert("login");
+       
 
-        crud.Login(email,password);
+        crud.login(email,password);
        
     }
 }}

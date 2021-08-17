@@ -28,8 +28,12 @@ $("#header").load("header.html");
                         "role": "USER"
                     };
 
-
-                    crud.addData(registerObj,"gift_user");//adding data to server
-
+                    crud.addData(registerObj,"giftshop_user").then(res=>{
+                        alert("registration successful");
+                        window.location.href="login.html";
+                    }).catch(err=>{
+                        console.log(err.response.data);
+                        alert("Registration failed");
+                    });
                 }
             }
