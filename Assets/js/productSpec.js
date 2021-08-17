@@ -70,7 +70,7 @@ function toCart(id,name,img_url,price,description){
     }
     else{
         // if item not exist, add new item to cart
-    let cartObj = {Id:id,Name:name,Price:price,Image_url:img_url,Description:description,Qty:qty};
+    let cartObj = {id:id,productName:name,price:price,imageUrl:img_url,description:description,qty:qty};
     console.log(cartObj);
     cartItems.push(cartObj);
     }
