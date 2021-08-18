@@ -10,10 +10,6 @@ let oderingProducts=JSON.parse(localStorage.getItem("cartElements"));
 
         function orderNow() {
     
-            
-            
-                       
-            
             event.preventDefault();
             
             
