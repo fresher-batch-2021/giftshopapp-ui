@@ -60,19 +60,7 @@ let oderingProducts=JSON.parse(localStorage.getItem("cartElements"));
                 console.log(err.response.data);
             });
 
-            //     console.log(orderObj);
-            //     const url="https://product-mock-api.herokuapp.com/orderapp/api/v1/orders?applicationName=giftshop";              
-            //   alert("hi");
-            //     axios.post(url,orderObj).then(res=>{
-            //         let data=res.data;
-            //         console.log(data);
-            //         alert("order has been placed succefully");
-            //         localStorage.removeItem("cartElements");
-            //         window.location.href="product.html";
-            //     }).catch(err=>{
-            //         alert("can't placed the order");
-            //     });
-                
+            
             }
         
 
