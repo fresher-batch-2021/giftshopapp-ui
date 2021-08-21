@@ -5,45 +5,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Register</title>
+    <title>Register</title>
 </head>
 
 <body>
-
     <header id="header">loading data from header.js</header>
 
+    <main>
+        <section class="RegisterContainer">
 
-    <section class="RegisterContainer">
-
-        <div class="regLogo">
-            <img src="Assets/Images/gift.png" alt="">
-            <p>Gift corner</p><br>
-        </div>
-
-        <form onsubmit="register()">
-            <div class="field">
-                <input type="text" required autocomplete="off" id="registerName" pattern="[a-zA-Z]{1,32}" maxlength="15" title="name should only be in alphabets">
-                <label for="registerName" title="Name"></label>
+            <div class="regLogo">
+                <img src="Assets/Images/gift.png" alt="">
+                <p>Gift corner</p><br>
             </div>
-            <div class="field">
-                <div class="email">
-                    <input type="email" required autocomplete="off" id="registerEmail" placeholder="email" pattern="[a-z0-9.]+@[a-z]+\.[a-z]{2,3}$"  title="email should be appropiate with 25 charectors"> 
-                    <label for="registerEmail" title="email"></label>
+
+            <form onsubmit="register()">
+                <div class="field">
+                    <input type="text" required autocomplete="off" id="registerName" pattern="[a-zA-Z]{1,32}"
+                        maxlength="15" title="name should only be in alphabets">
+                    <label for="registerName" title="Name"></label>
                 </div>
-            </div>
-            <div class="field">
-                <input type="password" required autocomplete="off" id="registerPassword">
-                <label for="registerPassword" title="password"></label>
-            </div>
-            <div class="field">
-                <input type="password" required autocomplete="off" id="registerConfirm">
-                <label for="registerConfirm" title="confirm"></label>
-            </div>
-            <button type="submit">Register</button>
 
-        </form>
+                <div class="field">
+                    <div class="email">
+                        <input type="email" required autocomplete="off" id="registerEmail" placeholder="email"
+                            pattern="[a-z0-9.]+@[a-z]+\.[a-z]{2,3}$"
+                            title="email should be appropiate with 25 charectors">
+                        <label for="registerEmail" title="email"></label>
+                    </div>
+                </div>
 
-    </section>
+                <div class="field">
+                    <input type="password" required autocomplete="off" id="registerPassword">
+                    <label for="registerPassword" title="password"></label>
+                </div>
+
+                <div class="field">
+                    <input type="password" required autocomplete="off" id="registerConfirm">
+                    <label for="registerConfirm" title="confirm"></label>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+    </main>
 
     <footer id="footer"></footer>
     <!-- java script -->
@@ -54,7 +58,7 @@
     <script src="Assets/js/header.js"></script>
     <script src="Assets/js/register.js"></script>
     <script src="Assets/js/crud.js"></script>
-    
+
 </body>
 
 </html>

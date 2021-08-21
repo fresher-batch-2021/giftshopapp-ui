@@ -2,10 +2,10 @@ ordernow page naming conventions are over----------------completed
 make java script in seperate page------------------------completed
 make cart page with array--------------------------------completed
 integrate apis with product page-------------------------completed
-integrate api with cart page
+integrate api with cart page-----------------------------completed
 add styles to product page
 angular learn
 change link in everypage
-change address of every image
+change address of every image-----------------------------completed
 changed to angular login page-----------------------------completed
-change  from js to angular register-----------------------pending
+change  from js to angular register-----------------------completed

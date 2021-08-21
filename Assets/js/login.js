@@ -10,10 +10,6 @@ switch(true){
     case (password.trim() == ""):{alert("password cab't be empty"); break;}
 
     default :{
-       
-
         crud.login(email,password);
-        
-       
     }
 }}

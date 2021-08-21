@@ -1,5 +1,4 @@
 // image slider java script start
-
 function addSliderImages(){
     
     const slider = document.querySelector('.slideshow_container');
@@ -12,7 +11,6 @@ function addSliderImages(){
     }
 }
 //below code is move the slideshow images
-
 
 //to change image in slider change the data here 
 let slideData = ["Assets/Images/bc1.jpg", "Assets/Images/bc2.jpg", "Assets/Images/bc3.jpg"];
@@ -31,11 +29,9 @@ function showSlides() {
     if (slideIndex > mySlidesDiv.length) {
         slideIndex = 1
     }
-    //display one image at at time
+    
     mySlidesDiv[slideIndex - 1].style.display = "block";//displaying the image
-    setTimeout(showSlides, 1650); // Change image every 1.65 seconds  
+    setTimeout(showSlides, 1650); // Change image every 1.65 seconds 
 }
-
-
 addSliderImages();
 showSlides();

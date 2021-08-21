@@ -9,44 +9,46 @@
 </head>
 
 <body>
-
     <header id="header"></header>
 
-    <section class="orderPageContainer">
+    <main>
+        <section class="orderPageContainer">
 
-        <div class="regLogo">
-            <img src="Assets/Images/gift.png" alt="no image to show">
-            <p>Gift Corner</p><br>
-        </div>
+            <div class="regLogo">
+                <img src="Assets/Images/gift.png" alt="no image to show">
+                <p>Gift Corner</p><br>
+            </div>
 
-        <form onsubmit="orderNow()">
-            <div class="field">
-                <div class="name">
-                    <input type="name" required autocomplete="off" id="orderPageName">
-                    <label for="orderPageName" title="Name"></label>
+            <form onsubmit="orderNow()">
+                <div class="field">
+                    <div class="name">
+                        <input type="name" required autocomplete="off" id="orderPageName">
+                        <label for="orderPageName" title="Name"></label>
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <address >
-                <input type="text" required autocomplete="off" id="orderPageAddress" maxlength="80">
-                <label for="orderPageAddress" title="address" ></label>
-                </address>
-            </div>
-            
-            <div class="field">
-                <input type="number" required  id="orderPagePhoneNumber" pattern="[6-9]{1}[0-9]{9}">
-                <label for="orderPagePhoneNumber" title="phonenumber"></label>
-            </div>
-            <div class="field">
-                <select  id="orderPagePayment">
-                    <option value="cod">Cash On Delivery</option>
-                </select>
-            </div>
-            
-            <button type="submit">Order Now</button>
-        </form>
 
-    </section>
+                <div class="field">
+                    <address>
+                        <input type="text" required autocomplete="off" id="orderPageAddress" maxlength="80">
+                        <label for="orderPageAddress" title="address"></label>
+                    </address>
+                </div>
+
+                <div class="field">
+                    <input type="number" required id="orderPagePhoneNumber" pattern="[6-9]{1}[0-9]{9}">
+                    <label for="orderPagePhoneNumber" title="phonenumber"></label>
+                </div>
+
+                <div class="field">
+                    <select id="orderPagePayment">
+                        <option value="cod">Cash On Delivery</option>
+                    </select>
+                </div>
+
+                <button type="submit">Order Now</button>
+            </form>
+        </section>
+    </main>
 
     <footer id="footer"></footer>
     <!-- java script -->
@@ -55,8 +57,8 @@
     <script src="Assets/js/header.js"></script>
     <script src="Assets/js/ordernow.js"></script>
     <script src="Assets/js/crud.js"></script>
-   
-    
+
+
 </body>
 
 </html>
