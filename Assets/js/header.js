@@ -23,10 +23,7 @@ function isLoggedIn(){
     document.querySelector(".navlinks").innerHTML=content;
 }
 function logout(){
-    
-    localStorage.setItem("IsLoggedIn",false);
-    localStorage.removeItem("cartElements");
-    localStorage.removeItem("totalAmount");
+    localStorage.clear();
     window.location.href="index.html";
 }
 

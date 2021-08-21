@@ -51,8 +51,8 @@ let oderingProducts=JSON.parse(localStorage.getItem("cartElements"));
 
             orderDetail.then(res=>{
                 console.log(res.date);
-                localStorage.setItem("cartElements",null);
-                localStorage.setItem("totalAmount",null);
+                localStorage.removeItem("cartElements");
+                localStorage.removeItem("totalAmount",null);
                 alert("your order has been plcaed successfully");
                 window.location.href="product.html";
             }).catch(err=>{

@@ -1,3 +1,7 @@
+ 
+
+  
+  console.log(validator.isEmail('foo@bar.com'));
 $("#header").load("header.html");
 
         function register() {
@@ -7,9 +11,13 @@ $("#header").load("header.html");
             const email = document.querySelector("#registerEmail").value;
             const password = document.querySelector("#registerPassword").value;
             const confirm = document.querySelector("#registerConfirm").value;
+          
             //if name is valid or not
             if (name == "" || name == null || name.trim() == "") {
                 alert("invalid not valid");
+            }
+            else if(validator.isEmail(email)){
+                alert("invalid email");
             }
             
             else if (password.length < 8) {
