@@ -1,4 +1,4 @@
-$("#header").load("header.html");
+
 
 function register() {
     event.preventDefault();

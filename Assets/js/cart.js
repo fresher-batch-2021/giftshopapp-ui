@@ -16,7 +16,7 @@ if(cartItems==null){
     <th id="cartNo">s.no</th>
     <th id="cartProduct">product</th>
     <th id="cartPrice">price</th>
-    <th id="cartQuantity">quantity</th>
+    <th  id="cartQuantity">quantity</th>
     <th id="cartTotal">Total</th>
 </tr>`;
 
@@ -34,7 +34,7 @@ if(cartItems==null){
     <td>${count}</td>
     <td><a href="productSpec.html">${items.productName}</a></td>
     <td>${items.price}</td>
-    <td>${items.quantity}</td>
+    <td contenteditable="true" >${items.quantity}</td>
     <td>${total}</td>
     <td><button type="submit" onclick="deleteCartData(${count - 1})">delete</button></td>
 </tr>`;

@@ -30,16 +30,19 @@
     <div class="spacing"></div>
 </section>
 
-<script src="Assets/js/routes.js"></script>
+
 <script>
 
-        let user = JSON.parse(localStorage.getItem("LOGGED_IN_USER"));
-    if (user != null) {
+        let userStatus = JSON.parse(localStorage.getItem("LOGGED_IN_USER"));
+        
+    if (userStatus != null) {
         localStorage.setItem("isLoggedIn",JSON.stringify(true))
         $(".navlink[data-loggedin='true']").show();
         $(".navlink[data-loggedin='false']").hide();
         // $("#profile").html("Welcome " + user.email + "!!!");
-    } else {
+    } 
+
+    else {
         localStorage.setItem("isLoggedIn",JSON.stringify(false))
         $(".navlink[data-loggedin='true']").hide();
         $(".navlink[data-loggedin='false']").show();
@@ -50,3 +53,4 @@
         window.location.href = "login.html";
     }
 </script>
+<script src="Assets/js/routes.js"></script>
