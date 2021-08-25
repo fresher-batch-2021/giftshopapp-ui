@@ -1,11 +1,11 @@
-//order now page
+
 let valid = true;
 //to place user detail on ordernow page
 
-console.log(JSON.parse(localStorage.getItem("LOGGED_IN_USER")).name);
-document.querySelector("#orderPageName").value = JSON.parse(localStorage.getItem("LOGGED_IN_USER")).name;
+// console.log(JSON.parse(localStorage.getItem("LOGGED_IN_USER")).name);
+// document.querySelector("#orderPageName").value = JSON.parse(localStorage.getItem("LOGGED_IN_USER")).name;
 
-let oderingProducts = JSON.parse(localStorage.getItem("cartElements"));
+// let oderingProducts = JSON.parse(localStorage.getItem("cartElements"));
 
 
 function orderNow() {
@@ -13,7 +13,7 @@ function orderNow() {
     event.preventDefault();
 
     const name = document.querySelector("#orderPageName").value;
-    const phonenumber = document.querySelector("#orderPagePhoneNumber").value;
+    const phoneNumber = document.querySelector("#orderPagePhoneNumber").value;
     const address = document.querySelector("#orderPageAddress").value;
     const payment = document.querySelector("#orderPagePayment").value;
 
@@ -21,7 +21,7 @@ function orderNow() {
     let delivereyDate = addDays(today, 10);
     let totalAmount = localStorage.getItem("totalAmount");
 
-    if (phonenumber.length != 10) {
+    if (phoneNumber.length != 10) {
         alert("phonenumber should be 10 numbers");
         return;
     }
@@ -30,7 +30,7 @@ function orderNow() {
     let orderObj = {
         name: name,
         address: address,
-        phonenumber: phonenumber,
+        phonenumber: phoneNumber,
         products: products,
         payment: payment,
         totalAmount: totalAmount,
@@ -47,7 +47,10 @@ function orderNow() {
     let orderDetail = crud.addData(orderObj, "giftshop_orders");
 
     orderDetail.then(res => {
-        console.log(res.date);
+        // productReport
+        
+        
+        console.log(res.data);
         localStorage.removeItem("cartElements");
         localStorage.removeItem("totalAmount", null);
         alert("your order has been plcaed successfully");
@@ -57,8 +60,6 @@ function orderNow() {
         console.log(err.response.data);
     });
 }
-
-
 // adding days to delvier
 function addDays(date, days) {
     const copy = new Date(Number(date))

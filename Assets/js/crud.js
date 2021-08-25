@@ -16,7 +16,7 @@ alert("hello");
                 email: email,
                 password: password
             },
-            fields: ["id", "name", "email"]
+            fields: ["id", "name", "email","role"]
         };
         axios.post(url, requestData, { headers: { Authorization: basicAuth } })
             .then(res => {
@@ -34,7 +34,6 @@ alert("hello");
                 else {
                     const user = data;
                     localStorage.setItem("LOGGED_IN_USER", JSON.stringify(data));
-                    localStorage.setItem("IsLoggedIn", true);
                     alert("login succesful");
                     window.location.href = "index.html";
                 }

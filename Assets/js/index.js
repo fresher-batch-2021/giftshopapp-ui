@@ -30,8 +30,8 @@ function showSlides() {
         slideIndex = 1
     }
     
-    mySlidesDiv[slideIndex - 1].style.display = "block";//displaying the image
-    setTimeout(showSlides, 1650); // Change image every 1.65 seconds 
+    mySlidesDiv[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 1650); 
 }
 addSliderImages();
 showSlides();

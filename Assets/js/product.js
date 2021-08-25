@@ -6,25 +6,25 @@ function product() {
     //sending data to server
         crud.getData("giftshop_products").then(res =>{
             let data=res.data.rows;
-            let images=data.map(obj=>obj.doc);
-            console.log(images);
+            let products=data.map(obj=>obj.doc);
+            console.log(products);
         
     
         let content = "";
-        for (let img of images) {
+        for (let product of products) {
             
-            content = content + `<div class="product" id="${img._id}">
+            content = content + `<div class="product" id="${product._id}">
             <form action="cart.html">
-            <a href="ProductSpec.html?id=${img._id}">
+            <a href="productSpec.html?id=${product._id}">
             <figure>
-            <img class="productImg" src="Assets/Images/${img.imageUrl}"  id="productImg" alt=""> 
-            <figcaption>${img.name}</figcaption>
+            <img class="productImg" src="Assets/Images/${product.imageUrl}"  id="productImg" alt=""> 
+            <figcaption>${product.name}</figcaption>
             </figure>
             </a>
            
-            <p class="productPrice" id="productPrice" >${img.price}</p>
+            <p class="productPrice" id="productPrice" >${product.price}</p>
             
-            <button type="submit" onclick="toCart('${img._id}','${img.name}','${img.imageUrl}','${img.price}','${img.description}')">add to cart</button>
+            <button type="submit" onclick="toCart('${product._id}','${product.name}','${product.imageUrl}','${product.price}','${product.description}')">add to cart</button>
             </form>
             </div>`;
             //for printing only 4 elements in a row
