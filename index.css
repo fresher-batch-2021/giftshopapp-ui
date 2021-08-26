@@ -169,6 +169,10 @@ th{
 td{
     border: 2px solid red;
 }
+.tableImage{
+    width: 100px;
+    height: 100px;
+}
 
 /* ---------------------product page------------ */
 /* product list */

@@ -11,12 +11,13 @@ function register() {
 
     bussinessValidation(email)
         .then(res => {
-            console.table(res.data.docs);
+            // console.table(res.data.docs);
             let data = res.data.docs;
             
             if (data != "") {
                 alert("email already exist enter different email")
-                window.location.href="register.html"
+                window.location.reload();
+                throw new Error("email already exist")
             }
 
     if (name == "" || name == null || name.trim() == "") {

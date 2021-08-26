@@ -7,7 +7,7 @@ function productSpec() {
     let id = param.get("id");
     
 
-    crud.findData("giftshop_products", id).then(res => {
+    crud.findDataById("giftshop_products", id).then(res => {
         let value = res.data;
         console.log(value)
         const id = value._id;

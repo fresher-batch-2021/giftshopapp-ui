@@ -2,10 +2,10 @@
 function cartItems() {
 
     let cartItems = JSON.parse(localStorage.getItem("cartElements"));
-    // console.log(cartItems)
+    
     //starting of the html code for table
-    alert(cartItems)
-if(cartItems==null){
+    
+if(cartItems==null||cartItems==""){
     
     document.querySelector(".cartData").innerHTML = `<p>cart is empty order something </p>`;
     return
@@ -16,8 +16,8 @@ if(cartItems==null){
     <th id="cartNo">s.no</th>
     <th id="cartProduct">product</th>
     <th id="cartPrice">price</th>
-    <th  id="cartQuantity">quantity</th>
-    <th id="cartTotal">Total</th>
+    <th  id="cartQuantity" >quantity</th>
+    <th id="cartTotal">Totasl</th>
 </tr>`;
 
 
@@ -34,7 +34,7 @@ if(cartItems==null){
     <td>${count}</td>
     <td><a href="productSpec.html">${items.productName}</a></td>
     <td>${items.price}</td>
-    <td contenteditable="true" >${items.quantity}</td>
+    <td contenteditable="true">${items.quantity}</td>
     <td>${total}</td>
     <td><button type="submit" onclick="deleteCartData(${count - 1})">delete</button></td>
 </tr>`;

@@ -50,15 +50,28 @@ class crud {
         const endUrl = "/_all_docs?include_docs=true";
         const url = endpoint + database + endUrl;
         return axios.get(url, { headers: { Authorization: basicAuth } });
-
     }
 
     // find data
-    static findData(database, id) {
+    static findDataById(database, id) {
         const url = endpoint + database + "/" + id;
 
         return axios.get(url, { headers: { Authorization: basicAuth } });
     }
+    static findOrders(email){
+        const url=endpoint+'giftshop_orders/_find';
+        alert("im in findOrders")
+        alert(email)
+        let requestData =
+        {
+            selector: {
+                email: email
+            },
+            fields: ["products","totalAmount","status","email"]
+        };
+        return axios.post(url, requestData, { headers: { Authorization: basicAuth } });
+    }
+
 
 
 }

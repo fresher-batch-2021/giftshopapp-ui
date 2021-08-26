@@ -1,9 +1,9 @@
 
-let valid = true;
+
 //to place user detail on ordernow page
 
-// console.log(JSON.parse(localStorage.getItem("LOGGED_IN_USER")).name);
-// document.querySelector("#orderPageName").value = JSON.parse(localStorage.getItem("LOGGED_IN_USER")).name;
+let userData=JSON.parse(localStorage.getItem("LOGGED_IN_USER"));
+document.querySelector("#orderPageName").value = userData.name;
 
 // let oderingProducts = JSON.parse(localStorage.getItem("cartElements"));
 
@@ -16,7 +16,7 @@ function orderNow() {
     const phoneNumber = document.querySelector("#orderPagePhoneNumber").value;
     const address = document.querySelector("#orderPageAddress").value;
     const payment = document.querySelector("#orderPagePayment").value;
-
+    
     let today = new Date();
     let delivereyDate = addDays(today, 10);
     let totalAmount = localStorage.getItem("totalAmount");
@@ -29,6 +29,7 @@ function orderNow() {
 
     let orderObj = {
         name: name,
+        email:userData.email,
         address: address,
         phonenumber: phoneNumber,
         products: products,
