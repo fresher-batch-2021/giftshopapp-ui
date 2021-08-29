@@ -40,7 +40,42 @@ button{
   .orderBtn{
     background-color: #6ce270;
   }
-
+/* --------------------------------------------toast-------------------------------- */
+.toast{
+    text-align: center;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 400px;
+    z-index: 3;
+    background-color: burlywood;
+    background-color: cornsilk;
+    font-family: sans-serif;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    height: 40px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s , top 0.2s,visibility 0.2s;
+}
+.toast--visible{
+    top: 20px;
+    visibility: visible;
+    opacity: 1;
+}
+.toast--sucess{
+    background-color: #00c02b;
+    border-color: #009d23;
+    color: #fff;
+}
+.toast--error{
+    background-color: #d50000;
+    border-color: #ba0000;
+    color: #fff;
+}
 /* -------------------------------------------navbar --------------------------------*/
 
 .navbar{
@@ -308,7 +343,7 @@ figcaption {
 .product button:hover {
     /* opacity: .7; */
     background-color:#4dcce6;
-    color:black;
+    color:black ;
     font-size: 20px;
     font-weight: 520;
 }

@@ -1,7 +1,13 @@
+// toast
+
+
+
+
 
 
 function register() {
-    document.getElementById('#registerBtn').disabled=true;
+    
+    // document.getElementById('#registerBtn').disabled=true;
     event.preventDefault();
 
     const name = document.querySelector("#registerName").value;
@@ -14,7 +20,7 @@ function register() {
         .then(res => {
         
             let data = res.data.docs;
-            
+            console.log(data)
             if (data != "") {
                 alert("email already exist enter different email")
                 window.location.reload();
@@ -41,12 +47,17 @@ function register() {
             };
 
             crud.addData(registerObj, "giftshop_user").then(response => {
+                
+        
+                toast.show("registration scucessfull",'sucess')
                 alert("registration successful");
-                document.getElementById('#registerBtn').disabled=false;
-    
+                
+                // document.getElementById('#registerBtn').disabled=false;
+                    
                 window.location.href = "login.html";
             }).catch(err => {
-                console.log(err.response.data);
+                toast.show('registration failed','error')
+                console.log(err.response);
                 alert("Registration failed");
             });
         }

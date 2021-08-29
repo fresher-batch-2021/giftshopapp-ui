@@ -120,7 +120,7 @@ function cartCheck() {
 
 // adding product to cart
 function toCart(id, name, imageUrl, price, description) {
-
+// document.getElementsByClassName('addCartBtn').disabled=true;
     let loginCheck = JSON.parse(localStorage.getItem("isLoggedIn"));
     if (!loginCheck) {
         alert("need to login first")
@@ -146,7 +146,9 @@ function toCart(id, name, imageUrl, price, description) {
             cartProducts.push(cartObj);
         }
         localStorage.setItem("cartElements", JSON.stringify(cartProducts));
-        window.location.href = "cart.html";
+        toast.show("added to cart",'sucess');
+        // document.getElementsByClassName('addToCart').disabled=false;
+        // window.location.href = "cart.html";
     }
 
 }
