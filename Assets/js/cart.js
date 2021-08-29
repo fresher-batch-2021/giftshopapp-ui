@@ -2,17 +2,17 @@ cartItems();
 function cartItems() {
 
     let cart = JSON.parse(localStorage.getItem("cartElements"));
-    
+
     //starting of the html code for table
-    
-if(cart==null||cart==""){
-    
-    document.querySelector(".cartData").innerHTML = `<p>cart is empty order something </p>`;
-    return
-}
+
+    if (cart == null || cart == "") {
+
+        document.querySelector(".cartData").innerHTML = `<a href='product.html'><p class="emptyCart">Cart is empty order something...</p></a>`;
+        return;
+    }
     let content = `
     <table class="contentTable">
-    <caption>cart table</caption>
+    <caption>Cart-Table</caption>
     <thead>
     <tr>
         <th id="cartNo" class="leftCorner">S.no</th>
@@ -20,9 +20,11 @@ if(cart==null||cart==""){
         <th id="cartPrice">Price</th>
         <th  id="cartQuantity">Quantity</th>
         <th id="cartTotal">Total</th>
-        <th class="rightCorner">Delete-Item</th>    
+        <th class="rightCorner">Delete-Item</th>
+         
     </tr>
     </thead>
+    <tbody>
     `;
 
 
@@ -37,9 +39,9 @@ if(cart==null||cart==""){
             content = content + `
     <tr>
     <td>${count}</td>
-    <td><a href="productSpec.html">${items.productName}</a></td>
+    <td><a style="color:black;" href="productSpec.html">${items.productName}</a></td>
     <td>${items.price}</td>
-    <td ><input id="${count-1}" class="cartQuantityTable" type ="number" value="${items.quantity}"></td>
+    <td ><input id="${count - 1}" class="cartQuantityTable" type ="number" value="${items.quantity}"></td>
     <td>${total}</td>
     <td><button class="deleteBtn" type="submit" onclick="deleteCartData(${count - 1})">delete</button></td>
 </tr>`;
@@ -49,18 +51,23 @@ if(cart==null||cart==""){
         }
     }
     let end = `
-<tr>
-<td></td>
-<td rowspan="5" class="totalRow" >total</td>
-
-
-<td rowspan="5">${sum}</td></tr>
-
-</table>
-
-<button type="button" onClick="cartCheck()">orderNow</button>
-<p><a href="product.html">continue shopping</a></p>
-`;
+            <tr>
+            <td></td>
+            <td colspan="1" class="totalRow" >Total Amount</td>
+            <td></td>
+            <td></td>
+            <td colspan="1" style="font-size:18px;">₹${sum}</td>
+            </tr>
+            
+            
+            </tbody>
+            </table>
+            <div class="align">
+            <a href="product.html"><button class="continueBtn">continue shopping</button></a>
+            <button class="orderBtn" type="button" onClick="cartCheck()">order now</button>
+            
+            </div>
+            `;
     localStorage.setItem("totalAmount", sum);
     content = content + end;
     document.querySelector(".cartData").innerHTML = content;//pasting the html data at .cartData class
@@ -69,14 +76,14 @@ if(cart==null||cart==""){
 // updation in cart
 
 
-document.body.addEventListener('focusout',update);
-function update(e){
-    
+document.body.addEventListener('focusout', update);
+function update(e) {
 
-    let id=e.target.id;
-    let cartElements=JSON.parse(localStorage.getItem("cartElements"))
-    cartElements[id].quantity=parseInt(e.target.value);
-    localStorage.setItem("cartElements",JSON.stringify(cartElements))
+
+    let id = e.target.id;
+    let cartElements = JSON.parse(localStorage.getItem("cartElements"))
+    cartElements[id].quantity = parseInt(e.target.value);
+    localStorage.setItem("cartElements", JSON.stringify(cartElements))
     window.location.reload()
 }
 
@@ -113,33 +120,33 @@ function cartCheck() {
 
 // adding product to cart
 function toCart(id, name, imageUrl, price, description) {
-  
-    let loginCheck=JSON.parse(localStorage.getItem("isLoggedIn"));
-    if(!loginCheck){
+
+    let loginCheck = JSON.parse(localStorage.getItem("isLoggedIn"));
+    if (!loginCheck) {
         alert("need to login first")
     }
-    else{
-    let cartItemsStr = localStorage.getItem("cartElements");
-    let cartProducts = cartItemsStr != null ? JSON.parse(cartItemsStr) : [];
-    let quantity = 1;
-
-    // If item already exist, update the quantity
-    let index = cartProducts.findIndex(obj => obj.id == id);
-    console.log(index);
-    if (index != -1) {
-        let cartObj = cartProducts[index];
-        console.log(cartObj);
-        cartObj.quantity++;
-        cartProducts[index] = cartObj;
-    }
     else {
-        // if item not exist, add new item to cart
-        let cartObj = { id: id, productName: name, price: price, imageUrl: imageUrl, description: description, quantity: quantity };
-        console.log(cartObj);
-        cartProducts.push(cartObj);
+        let cartItemsStr = localStorage.getItem("cartElements");
+        let cartProducts = cartItemsStr != null ? JSON.parse(cartItemsStr) : [];
+        let quantity = 1;
+
+        // If item already exist, update the quantity
+        let index = cartProducts.findIndex(obj => obj.id == id);
+        console.log(index);
+        if (index != -1) {
+            let cartObj = cartProducts[index];
+            console.log(cartObj);
+            cartObj.quantity++;
+            cartProducts[index] = cartObj;
+        }
+        else {
+            // if item not exist, add new item to cart
+            let cartObj = { id: id, productName: name, price: price, imageUrl: imageUrl, description: description, quantity: quantity };
+            console.log(cartObj);
+            cartProducts.push(cartObj);
+        }
+        localStorage.setItem("cartElements", JSON.stringify(cartProducts));
+        window.location.href = "cart.html";
     }
-    localStorage.setItem("cartElements", JSON.stringify(cartProducts));
-    window.location.href = "cart.html";
-}
-    
+
 }

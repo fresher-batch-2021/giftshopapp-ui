@@ -6,7 +6,7 @@ const routes = [
     { path: 'aboutUs.html' },
     { path: 'login.html' },
     { path: 'register.html' },
-    { path: 'myOrders.html'},
+    { path: 'myOrders.html',roles:["USER","ADMIN"]},
     { path: 'ordernow.html',roles: ["USER","ADMIN"]}
 ];
 // =====

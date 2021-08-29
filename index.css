@@ -5,7 +5,7 @@
 }
 a{
     text-decoration: none;
-    color: #D00000;
+    color: #2C80FF;
     font-size: 20px;
    
 }
@@ -31,8 +31,17 @@ button{
       /* background-color: #2ec4b6; */
       background-color: #35B5CE;
   }
+  .searchBtn{
+      background-color: #35B5CE;
+  }
+  .continueBtn{
+      background-color: #40b5cc;
+  }
+  .orderBtn{
+    background-color: #6ce270;
+  }
 
-/* navbar */
+/* -------------------------------------------navbar --------------------------------*/
 
 .navbar{
     background-color: #bde0fe;
@@ -42,6 +51,7 @@ button{
     top: 0;
     left: 0;
     right: 0;
+    z-index: 2;
 }
 .navbar img{
     width: 40px;
@@ -55,11 +65,13 @@ button{
     top: 17px;
     left: 58px;
     letter-spacing:4px;
+    
 }
 .navlinks{
     position: absolute;
     right: 10px;
-    top: 2px;
+    top: 22px;
+    
 }
 .navlink {
     /* display: inline-block; */
@@ -69,7 +81,8 @@ button{
     color: blue;
 }
 .navcontent{
-    clear: both;
+    z-index: 2;
+    /* clear: both; */
     position: fixed;
     top: 50px;
     border: 2px solid #bde0fe;
@@ -109,24 +122,11 @@ button{
    margin: 40px;
    position: relative;
    z-index: -1;
-
   }
   .slideshow_container img{
-  
       height: 450px;
-      
   } 
-  /* Fading animation */
-  .fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-  /* On smaller screens, decrease text size */
-  @media only screen and (max-width: 300px) {
-    .text {font-size: 11px}
-  }
+  
   .imgSlide{
     width:100%;
     margin-top: 80px;
@@ -159,6 +159,7 @@ button{
   }
 
 /* index table */
+/* ---------------------------------------------table--------------------- */
 caption{
     font-size: 30px;
     font-weight: bolder;
@@ -187,7 +188,11 @@ table{
     /* background-color: #2a9d8f; */
     color: #fff;
     text-align: center;
-    font-weight: bold;
+    font-weight: 550;
+    letter-spacing: 0.5px;
+}
+th{
+    font-size: 18px;
 }
 .contentTable th,
 .contentTable td{
@@ -207,45 +212,105 @@ table{
     border-radius: 15px;
     /* background-color: beige; */
     background-color: #f0f7f7;
-    /* box-shadow:none; */
-}
-.innerTable tbody tr{
-    border-bottom:none;
 }
 
 
   
 
-
 /* ---------------------product page------------ */
 /* product list */
+.productWrapper {
+    margin: 120px 80px;
+}
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    margin-bottom: 40px;
+}
+
+.searchBox {
+    min-width: 80%;
+    height: 30px;
+    font-size: 1em;
+    padding: 2px 0 2px 5px;
+    margin: 8px 5px;
+    border-radius: 5px;
+}
+
+.searchBtn {
+    width: 300px;
+    height: 35px;
+    margin: 8px 10px 8px 35px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: lighter;
+    letter-spacing: 1px;
+}
+
+.productContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 
 .product {
-    border: 2px solid red;
-    border-radius: 12px;
-    width: 200px;
-    height: 300px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    padding: 8px;
+    width: 250px;
+    height: 350px;
+    /* border: 1px solid; */
+    margin: 0 20px 50px 40px;
+    border-radius: 5px;
+    overflow: hidden;
     display: inline-block;
+    justify-content: space-between;
+    box-shadow: 12px 8px 10px 2px rgb(188, 199, 221);
 }
 
-.productImg {
-    width: 200px;
-    height: 230px;
-    border-radius: 12px;
-    border: 1px solid blue;
+.product:hover {
+    /* z-index: -2; */
+    transform: translateY(-8px);
+    width: 260px;
+    height: 370px;
+    transition: all ease-out 0.1s;
 }
 
-.productName {
-    text-align: center;
-    margin-bottom: 5px;
+.product img {
+    width: 100%;
+    height: 250px;
 }
+
 
 .productPrice {
-
+    color: grey;
     text-align: center;
+    font-size: 22px;
+}
+
+figcaption {
+    text-align: center;
+}
+
+.product button {
+    border: none;
+    outline: 0;
+    color: white;
+    overflow: hidden;
+    background-color: #35B5CE;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 2%;
+
+    width: 96%;
+    font-size: 18px;
+}
+
+.product button:hover {
+    /* opacity: .7; */
+    background-color:#4dcce6;
+    color:black;
+    font-size: 20px;
+    font-weight: 520;
 }
 /*----------------------- productSpec page ------------------------*/
 .productSpec img {
@@ -256,7 +321,39 @@ table{
 .productSpec button {
     background-color: red;
 }
+/* -------------------------MyCart page------------------------ */
 
+.cartData{
+    /* border: 2px solid; */
+    
+}
+.cartData .orderBtn,
+.cartData .continueBtn{
+    /* justify-content: center; */
+    /* text-align: center; */
+    margin-left:40px;
+    margin-right: 40px;
+    border-radius: 5px;
+    width: 250px;
+    height: 40px;
+    font-size: 18px;
+
+}
+.align{
+    display: flex;
+    /* align-items: center; */
+    
+    justify-content: center;
+}
+
+.totalRow{
+    font-size: 18px;
+}
+.emptyCart{
+    text-align: center;
+    margin-top: 140px;
+    font-size: 30px;
+}
 /*------------- Register, login page and orderPage-----------  */
 
 /* common codes */
