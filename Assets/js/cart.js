@@ -120,25 +120,25 @@ function toCart(id, name, imageUrl, price, description) {
     }
     else{
     let cartItemsStr = localStorage.getItem("cartElements");
-    let cartItems = cartItemsStr != null ? JSON.parse(cartItemsStr) : [];
+    let cartProducts = cartItemsStr != null ? JSON.parse(cartItemsStr) : [];
     let quantity = 1;
 
     // If item already exist, update the quantity
-    let index = cartItems.findIndex(obj => obj.id == id);
+    let index = cartProducts.findIndex(obj => obj.id == id);
     console.log(index);
     if (index != -1) {
-        let cartObj = cartItems[index];
+        let cartObj = cartProducts[index];
         console.log(cartObj);
         cartObj.quantity++;
-        cartItems[index] = cartObj;
+        cartProducts[index] = cartObj;
     }
     else {
         // if item not exist, add new item to cart
         let cartObj = { id: id, productName: name, price: price, imageUrl: imageUrl, description: description, quantity: quantity };
         console.log(cartObj);
-        cartItems.push(cartObj);
+        cartProducts.push(cartObj);
     }
-    localStorage.setItem("cartElements", JSON.stringify(cartItems));
+    localStorage.setItem("cartElements", JSON.stringify(cartProducts));
     window.location.href = "cart.html";
 }
     
