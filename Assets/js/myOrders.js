@@ -89,8 +89,8 @@ function updateStatus(id){
             updateData:orderObj
         }
         
-        crud.updateData(updateObj).then(res=>{
-            console.log(res.data)
+        crud.updateData(updateObj).then(resposne=>{
+            console.log(resposne.data)
             alert("updated");
             window.location.reload();
         }).catch(err=>{

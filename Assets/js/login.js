@@ -6,8 +6,8 @@ function loginPage() {
     const password = document.querySelector("#loginPassword").value;
     
 switch(true){
-    case email.trim()=="":{alert("email can't be full of spaces");}
-    case (password.trim() == ""):{alert("password cab't be empty");}
+    case email.trim()=="":{alert("email can't be full of spaces"); break;}
+    case (password.trim() == ""):{alert("password cab't be empty"); break;}
 
     default :{
         

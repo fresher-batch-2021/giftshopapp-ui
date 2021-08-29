@@ -12,7 +12,7 @@ function register() {
 
     bussinessValidation(email)
         .then(res => {
-            // console.table(res.data.docs);
+        
             let data = res.data.docs;
             
             if (data != "") {
@@ -40,7 +40,7 @@ function register() {
                 "role": "USER"
             };
 
-            crud.addData(registerObj, "giftshop_user").then(res => {
+            crud.addData(registerObj, "giftshop_user").then(response => {
                 alert("registration successful");
                 document.getElementById('#registerBtn').disabled=false;
     

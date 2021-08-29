@@ -1,7 +1,6 @@
 
 export class ValidationService{
-    constructor(){}
-    
+
     isValidString(value,errMessage){
     if(value==null||value==undefined){
         throw new Error(errMessage)

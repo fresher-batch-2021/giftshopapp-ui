@@ -5,8 +5,6 @@
 let userData=JSON.parse(localStorage.getItem("LOGGED_IN_USER"));
 document.querySelector("#orderPageName").value = userData.name;
 
-// let oderingProducts = JSON.parse(localStorage.getItem("cartElements"));
-
 
 function orderNow() {
 

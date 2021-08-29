@@ -189,14 +189,6 @@ table{
     text-align: center;
     font-weight: bold;
 }
-.leftCorner{
-    /* background-color: #009879; */
-    border-radius: 15px 0px 0 0;
-}
-.rightCorner{
-    border-radius: 0 15px 0 0;
-}
-
 .contentTable th,
 .contentTable td{
     color: #000;

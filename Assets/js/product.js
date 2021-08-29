@@ -11,20 +11,20 @@ function product() {
         
     
         let content = "";
-        for (let product of products) {
+        for (let productItem of products) {
             
-            content = content + `<div class="product" id="${product._id}">
+            content = content + `<div class="product" id="${productItem._id}">
             <form action="cart.html">
-            <a href="productSpec.html?id=${product._id}">
+            <a href="productSpec.html?id=${productItem._id}">
             <figure>
-            <img class="productImg" src="Assets/Images/${product.imageUrl}"  id="productImg" alt=""> 
-            <figcaption>${product.name}</figcaption>
+            <img class="productImg" src="Assets/Images/${productItem.imageUrl}"  id="productImg" alt=""> 
+            <figcaption>${productItem.name}</figcaption>
             </figure>
             </a>
            
-            <p class="productPrice" id="productPrice" >${product.price}</p>
+            <p class="productPrice" id="productPrice" >${productItem.price}</p>
             
-            <button type="submit" onclick="toCart('${product._id}','${product.name}','${product.imageUrl}','${product.price}','${product.description}')">add to cart</button>
+            <button type="submit" onclick="toCart('${productItem._id}','${productItem.name}','${productItem.imageUrl}','${productItem.price}','${productItem.description}')">add to cart</button>
             </form>
             </div>`;
             //for printing only 4 elements in a row
