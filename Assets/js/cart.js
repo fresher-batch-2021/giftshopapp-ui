@@ -1,11 +1,11 @@
 cartItems();
 function cartItems() {
 
-    let cartItems = JSON.parse(localStorage.getItem("cartElements"));
+    let cart = JSON.parse(localStorage.getItem("cartElements"));
     
     //starting of the html code for table
     
-if(cartItems==null||cartItems==""){
+if(cart==null||cart==""){
     
     document.querySelector(".cartData").innerHTML = `<p>cart is empty order something </p>`;
     return
@@ -26,13 +26,13 @@ if(cartItems==null||cartItems==""){
     `;
 
 
-    console.log(cartItems);
+    console.log(cart);
 
     //end of table content
     var count = 1;
     let sum = 0;
-    if (cartItems) {
-        for (let items of cartItems) {
+    if (cart) {
+        for (let items of cart) {
             let total = items.price * items.quantity;
             content = content + `
     <tr>
