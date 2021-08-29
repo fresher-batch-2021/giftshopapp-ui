@@ -12,34 +12,36 @@ a{
 body{
     position: relative;
 }
+/* ------------------------------------------button-------------------------- */
 button{
-    margin: 0px auto;
-    background: none;
-    color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-}
-/* to remove button slider in number input */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    font-size: 0.9em;
+    padding: 5px 7px;
+    margin: 2px 1px;   
+  }
+  .deleteBtn{
+    background-color: #f07167;
+  }
+  .editBtn{
+      /* background-color: #2ec4b6; */
+      background-color: #35B5CE;
+  }
+
 /* navbar */
 
 .navbar{
     background-color: #bde0fe;
     height: 50px;
     /* //below t2o code to move the navbaar */
-    overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    /* box-shadow: 0px 3px 2px 2px slateblue; */
 }
 .navbar img{
     width: 40px;
@@ -60,7 +62,7 @@ input::-webkit-inner-spin-button {
     top: 2px;
 }
 .navlink {
-    display: inline-block;
+    /* display: inline-block; */
     padding: 2px 2px;
     margin-top: 20px;
     font-size: 20px;
@@ -157,22 +159,71 @@ input::-webkit-inner-spin-button {
   }
 
 /* index table */
+caption{
+    font-size: 30px;
+    font-weight: bolder;
+    color: midnightblue;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
 table{
-    border: 2px solid red;
+    background-color: white;
+    border-collapse: collapse;
+    border-radius: 15px 15px 0 0;
+    margin: 25px auto;
+    font-size: 09.em;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
 }
-tr{
-    border: 2px solid red;
+.leftCorner{
+    /* background-color: #009879; */
+    border-radius: 15px 0px 0 0;
 }
-th{
-    border: 2px solid red;
+.rightCorner{
+    border-radius: 0 15px 0 0;
 }
-td{
-    border: 2px solid red;
+.contentTable thead th{
+    background-color: #18B9B9;
+    /* background-color: #2a9d8f; */
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+}
+.leftCorner{
+    /* background-color: #009879; */
+    border-radius: 15px 0px 0 0;
+}
+.rightCorner{
+    border-radius: 0 15px 0 0;
+}
+
+.contentTable th,
+.contentTable td{
+    color: #000;
+    padding: 12px 15px;
+    text-align: center;
+}
+.contentTable tbody tr{
+    border-bottom: 1px solid lightgray;
 }
 .tableImage{
     width: 100px;
     height: 100px;
 }
+
+.innerTable{
+    border-radius: 15px;
+    /* background-color: beige; */
+    background-color: #f0f7f7;
+    /* box-shadow:none; */
+}
+.innerTable tbody tr{
+    border-bottom:none;
+}
+
+
+  
+
 
 /* ---------------------product page------------ */
 /* product list */
@@ -288,7 +339,7 @@ td{
 .RegisterContainer button,.loginContainer button,.orderPageContainer button{
     display: block;
     position: absolute;
-    background-color: red;
+    background-color: #2a9d8f;
     color: white;
     margin-left: 20px;
     width: 90%;
@@ -301,7 +352,7 @@ td{
 /* Registration page container */
 .RegisterContainer{
     position: relative;
-    border: 2px solid red;
+    border: 2px solid #2a9d8f;
     border-radius: 12px;
     margin: 10% 35% 0% 35%;
     padding-bottom: 3%;
@@ -309,7 +360,7 @@ td{
 }
 /* login page */
 .loginContainer{
-    border: 2px solid red;
+    border: 2px solid #2a9d8f;
     border-radius: 12px;
     margin: 12% 35% 0% 35%;
     padding-bottom: 40px;
@@ -317,7 +368,7 @@ td{
 }
 /* ordernow page */
 .orderPageContainer{
-    border: 2px solid red;
+    border: 2px solid #2a9d8f;
     border-radius: 12px;
     margin: 12% 35% 0% 35%;
     padding-bottom: 40px;

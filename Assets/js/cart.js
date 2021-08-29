@@ -10,15 +10,20 @@ if(cartItems==null||cartItems==""){
     document.querySelector(".cartData").innerHTML = `<p>cart is empty order something </p>`;
     return
 }
-    let content = `<table>
-<caption>cart table</caption>
-<tr>
-    <th id="cartNo">s.no</th>
-    <th id="cartProduct">product</th>
-    <th id="cartPrice">price</th>
-    <th  id="cartQuantity" >quantity</th>
-    <th id="cartTotal">Totasl</th>
-</tr>`;
+    let content = `
+    <table class="contentTable">
+    <caption>cart table</caption>
+    <thead>
+    <tr>
+        <th id="cartNo" class="leftCorner">S.no</th>
+        <th id="cartProduct">Product</th>
+        <th id="cartPrice">Price</th>
+        <th  id="cartQuantity">Quantity</th>
+        <th id="cartTotal">Total</th>
+        <th class="rightCorner">Delete-Item</th>    
+    </tr>
+    </thead>
+    `;
 
 
     console.log(cartItems);
@@ -36,7 +41,7 @@ if(cartItems==null||cartItems==""){
     <td>${items.price}</td>
     <td ><input id="${count-1}" class="cartQuantityTable" type ="number" value="${items.quantity}"></td>
     <td>${total}</td>
-    <td><button type="submit" onclick="deleteCartData(${count - 1})">delete</button></td>
+    <td><button class="deleteBtn" type="submit" onclick="deleteCartData(${count - 1})">delete</button></td>
 </tr>`;
 
             sum = sum + total;
@@ -66,14 +71,12 @@ if(cartItems==null||cartItems==""){
 
 document.body.addEventListener('focusout',update);
 function update(e){
-    // alert(e.target.id)
-    // console.log(e.target.value)
-    // alert(e.target.value)
+    
 
     let id=e.target.id;
-    let cartItems=JSON.parse(localStorage.getItem("cartElements"))
-    cartItems[id].quantity=parseInt(e.target.value);
-    localStorage.setItem("cartElements",JSON.stringify(cartItems))
+    let cartElements=JSON.parse(localStorage.getItem("cartElements"))
+    cartElements[id].quantity=parseInt(e.target.value);
+    localStorage.setItem("cartElements",JSON.stringify(cartElements))
     window.location.reload()
 }
 

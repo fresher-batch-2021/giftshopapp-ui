@@ -1,21 +1,21 @@
 
-function listOrder(){
+
 let usrData=JSON.parse(localStorage.getItem("LOGGED_IN_USER"));
-alert(usrData.email)
+
 crud.findOrders(usrData.email).then(res=>{
     // console.log(res.data)
     console.log(usrData.email)
     let orders=res.data.docs
     console.log(orders)
     let content =`
-    <table>
+    <table class="contentTable">
     <thead>
         <tr>
-            <th>s.no</th>
+            <th class="leftCorner">s.no</th>
             <th>products</th>
             <th>totalAmount</th>
             <th>status</th>
-            <th>change status</th>
+            <th class="rightCorner">change status</th>
         </tr>
     </thead>
     <tbody>
@@ -23,14 +23,15 @@ crud.findOrders(usrData.email).then(res=>{
    
     let count=1;
     for(let order of orders){
+        
 
         let table=`
-        <table>
+        <table class="innerTable">
         <thead>
-            <tr>
-                <th>product</th>
+            <tr >
+                <th class="leftCorner">product</th>
                 <th>price</th>
-                <th>quantity</th>
+                <th class="rightCorner">quantity</th>
             </tr>
         </thead>
         <tbody>
@@ -40,14 +41,14 @@ crud.findOrders(usrData.email).then(res=>{
         <td>${count}</td>
         <td>
         `;
-        console.log("yesh",order.products)
+        // console.log("yesh",order.products)
         for(let product of order.products){
             table+=`
             <tr>
             <td>
             <img class="tableImage" src="Assets/Images/${product.imageUrl}">
             </td>
-            <td>${product.price}</td>
+            <td>₹${product.price}</td>
             <td>${product.quantity}</td>
             </tr>
             `;
@@ -56,9 +57,9 @@ crud.findOrders(usrData.email).then(res=>{
         </tbody></table>
         `;
         content+=`
-        <td>${order.totalAmount}</td>
+        <td>₹${order.totalAmount}</td>
         <td>${order.status}</td>
-        <td><button  onclick="updateStatus(${order})" type="button">cancel </button></td>
+        <td><button class="deleteBtn" onclick="updateStatus('${order._id}')" type="button">cancel </button></td>
         </tr>
         `;
         count++;
@@ -70,27 +71,31 @@ crud.findOrders(usrData.email).then(res=>{
     
 
     
-});
-}
+}).catch(err=>{
+    console.log(err.resposne)
+})
 
-function updateStatus(orderDetails){
-    console.table(orderDetails)
+function updateStatus(id){
+
     
-    alert(orderDetails._id)
-    alert('hello')
-    orderDetails.status="CANCELLED";
-    let orderObj={
-        database:"giftshop_orders",
-        updateData:orderDetails
-    }
-    crud.updateData(orderObj).then(res=>{
-        console.log("order cancelled");
-        window.location.reload();
-    }).catch(err=>{
-        console.log('process failed')
-        console.log(err.resposne);
-        alert("processed failed");
-    });
+    crud.findDataById('giftshop_orders',id).then(res=>{
+        
+        let orderObj=res.data;
+        orderObj.status="CANCELED";
+        console.table(orderObj)
 
+        let updateObj={
+            database:'giftshop_orders',
+            updateData:orderObj
+        }
+        
+        crud.updateData(updateObj).then(res=>{
+            console.log(res.data)
+            alert("updated");
+            window.location.reload();
+        }).catch(err=>{
+            alert("updation failed");
+            console.log(err.resposne.data)
+        })
+    });
 }
-listOrder();

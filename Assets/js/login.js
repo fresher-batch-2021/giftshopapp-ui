@@ -22,12 +22,13 @@ switch(true){
             else {
                 localStorage.setItem("LOGGED_IN_USER", JSON.stringify(data));
                 alert("login succesful");
-                document.getElementById('#loginBtn').disabled=false;
+                document.getElementById('loginBtn').disabled=false;
     
                 window.location.href = "index.html";
             }
         }).catch(err => {
-            if (err.response.data.errorMessage) {
+            alert("erro")
+            if (err.response.data) {
                 console.log(err.response.data.errorMessage);
             }
             alert("login failed");

@@ -9,3 +9,7 @@ change link in everypage
 change address of every image-----------------------------completed
 changed to angular login page-----------------------------completed
 change  from js to angular register-----------------------completed
+aboutUs
+review table
+product sidp
+product spection

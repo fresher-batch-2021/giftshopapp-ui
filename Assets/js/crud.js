@@ -60,14 +60,12 @@ class crud {
     }
     static findOrders(email){
         const url=endpoint+'giftshop_orders/_find';
-        alert("im in findOrders")
-        alert(email)
         let requestData =
         {
             selector: {
                 email: email
             },
-            fields: ["products","totalAmount","status","email"]
+            fields: ["products","totalAmount","status","email","_id"]
         };
         return axios.post(url, requestData, { headers: { Authorization: basicAuth } });
     }
@@ -80,8 +78,8 @@ class crud {
     static updateData(object){
         let updateObj=object.updateData;
         let database=object.database;
-        const id = object._id;
-        const rev = object._rev;
+        const id = updateObj._id;
+        const rev = updateObj._rev;
         const url=endpoint+database+'/'+id+'?rev='+rev;
         return axios.put(url,updateObj,{headers:{Authorization:basicAuth}});
     }
