@@ -124,7 +124,7 @@ function toCart(id, name, imageUrl, price, description) {
     let quantity = 1;
 
     // If item already exist, update the quantity
-    let index = cartItems.findIndex(cartItems => cartItems.id == id);
+    let index = cartItems.findIndex(obj => obj.id == id);
     console.log(index);
     if (index != -1) {
         let cartObj = cartItems[index];
@@ -143,8 +143,3 @@ function toCart(id, name, imageUrl, price, description) {
 }
     
 }
-
-// function coupon(){
-//     let cartItem=JSON.parse(localStorage.getItem("cartElements"));
-//     console.log(cartItem)
-// }
