@@ -1,3 +1,5 @@
+
+function listOrder(){
 let usrData=JSON.parse(localStorage.getItem("LOGGED_IN_USER"));
 alert(usrData.email)
 crud.findOrders(usrData.email).then(res=>{
@@ -13,6 +15,7 @@ crud.findOrders(usrData.email).then(res=>{
             <th>products</th>
             <th>totalAmount</th>
             <th>status</th>
+            <th>change status</th>
         </tr>
     </thead>
     <tbody>
@@ -55,6 +58,7 @@ crud.findOrders(usrData.email).then(res=>{
         content+=`
         <td>${order.totalAmount}</td>
         <td>${order.status}</td>
+        <td><button  onclick="updateStatus(${order})" type="button">cancel </button></td>
         </tr>
         `;
         count++;
@@ -66,4 +70,27 @@ crud.findOrders(usrData.email).then(res=>{
     
 
     
-})
+});
+}
+
+function updateStatus(orderDetails){
+    console.table(orderDetails)
+    
+    alert(orderDetails._id)
+    alert('hello')
+    orderDetails.status="CANCELLED";
+    let orderObj={
+        database:"giftshop_orders",
+        updateData:orderDetails
+    }
+    crud.updateData(orderObj).then(res=>{
+        console.log("order cancelled");
+        window.location.reload();
+    }).catch(err=>{
+        console.log('process failed')
+        console.log(err.resposne);
+        alert("processed failed");
+    });
+
+}
+listOrder();

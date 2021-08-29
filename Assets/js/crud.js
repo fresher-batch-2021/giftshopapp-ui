@@ -72,6 +72,17 @@ class crud {
         return axios.post(url, requestData, { headers: { Authorization: basicAuth } });
     }
 
-
-
+/**
+ * 
+ * @param {*} object it has name of database and updated object 
+ * the parameters are database and updateData
+ */
+    static updateData(object){
+        let updateObj=object.updateData;
+        let database=object.database;
+        const id = object._id;
+        const rev = object._rev;
+        const url=endpoint+database+'/'+id+'?rev='+rev;
+        return axios.put(url,updateObj,{headers:{Authorization:basicAuth}});
+    }
 }

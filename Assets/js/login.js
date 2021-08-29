@@ -1,5 +1,6 @@
 
 function loginPage() {
+    document.getElementById('loginBtn').disabled=true;
     event.preventDefault();
     const email = document.querySelector("#loginEmail").value;
     const password = document.querySelector("#loginPassword").value;
@@ -21,6 +22,8 @@ switch(true){
             else {
                 localStorage.setItem("LOGGED_IN_USER", JSON.stringify(data));
                 alert("login succesful");
+                document.getElementById('#loginBtn').disabled=false;
+    
                 window.location.href = "index.html";
             }
         }).catch(err => {

@@ -1,6 +1,7 @@
 
 
 function register() {
+    document.getElementById('#registerBtn').disabled=true;
     event.preventDefault();
 
     const name = document.querySelector("#registerName").value;
@@ -41,6 +42,8 @@ function register() {
 
             crud.addData(registerObj, "giftshop_user").then(res => {
                 alert("registration successful");
+                document.getElementById('#registerBtn').disabled=false;
+    
                 window.location.href = "login.html";
             }).catch(err => {
                 console.log(err.response.data);

@@ -1,4 +1,4 @@
-
+cartItems();
 function cartItems() {
 
     let cartItems = JSON.parse(localStorage.getItem("cartElements"));
@@ -34,7 +34,7 @@ if(cartItems==null||cartItems==""){
     <td>${count}</td>
     <td><a href="productSpec.html">${items.productName}</a></td>
     <td>${items.price}</td>
-    <td contenteditable="true">${items.quantity}</td>
+    <td ><input id="${count-1}" class="cartQuantityTable" type ="number" value="${items.quantity}"></td>
     <td>${total}</td>
     <td><button type="submit" onclick="deleteCartData(${count - 1})">delete</button></td>
 </tr>`;
@@ -60,6 +60,25 @@ if(cartItems==null||cartItems==""){
     content = content + end;
     document.querySelector(".cartData").innerHTML = content;//pasting the html data at .cartData class
 }
+
+// updation in cart
+
+
+document.body.addEventListener('focusout',update);
+function update(e){
+    // alert(e.target.id)
+    // console.log(e.target.value)
+    // alert(e.target.value)
+
+    let id=e.target.id;
+    let cartItems=JSON.parse(localStorage.getItem("cartElements"))
+    cartItems[id].quantity=parseInt(e.target.value);
+    localStorage.setItem("cartElements",JSON.stringify(cartItems))
+    window.location.reload()
+}
+
+
+
 
 // deleting elements in cart
 function deleteCartData(index) {
@@ -117,8 +136,12 @@ function toCart(id, name, imageUrl, price, description) {
         cartItems.push(cartObj);
     }
     localStorage.setItem("cartElements", JSON.stringify(cartItems));
-    window.location.href = "cart.html";}
+    window.location.href = "cart.html";
+}
     
 }
 
-cartItems();
+// function coupon(){
+//     let cartItem=JSON.parse(localStorage.getItem("cartElements"));
+//     console.log(cartItem)
+// }
