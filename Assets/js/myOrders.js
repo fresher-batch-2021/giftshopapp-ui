@@ -57,8 +57,8 @@ crud.findOrders(usrData.email).then(res=>{
         </tbody></table>
         `;
         content+=`
-        <td>₹${order.totalAmount}</td>
-        <td>${order.status}</td>
+        <td class="orderDetails">₹${order.totalAmount}</td>
+        <td class="orderDetails">${order.status}</td>
         <td><button class="deleteBtn" onclick="updateStatus('${order._id}')" type="button">cancel </button></td>
         </tr>
         `;

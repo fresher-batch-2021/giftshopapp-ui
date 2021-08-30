@@ -23,6 +23,11 @@ function orderNow() {
         alert("phonenumber should be 10 numbers");
         return;
     }
+    // alert(phoneNumber[0])
+    // if(phoneNumber[0]!='9' || phoneNumber[0]!='8' || phoneNumber[0]!=7){
+    //     alert("phone number should start with 7 or 8 or 9")
+    //     return
+    // }
     let products = JSON.parse(localStorage.getItem("cartElements"));
 
     let orderObj = {

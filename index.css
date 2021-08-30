@@ -11,6 +11,7 @@ a{
 }
 body{
     position: relative;
+    
 }
 /* ------------------------------------------button-------------------------- */
 button{
@@ -148,6 +149,19 @@ button{
 .spacing{
     margin-top: 100px;
 }
+/* -----------------------footer------------------- */
+#footer{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-grow: inherit;
+    min-height: 10vh;
+    flex-direction: column;
+    text-align: center;
+    background-color:#bde0fe;
+    margin-top: 20px;
+    
+}
+
 /* -------------------------index Page------------- */
 
 /* image slider */
@@ -180,8 +194,11 @@ button{
   /* text in index page */
   .indexPara > h1{
     
-      font-family: 'Style Script', cursive;
-      text-align: center;
+      /* font-family: 'Style Script',fantasy;
+       */
+       font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+       /* letter-spacing: 1px; */
+       text-align: center;
       font-size: 60px;
       margin-top: 100px;
       
@@ -360,7 +377,7 @@ figcaption {
 
 .cartData{
     /* border: 2px solid; */
-    
+    height: 525px;
 }
 .cartData .orderBtn,
 .cartData .continueBtn{
@@ -388,6 +405,10 @@ figcaption {
     text-align: center;
     margin-top: 140px;
     font-size: 30px;
+}
+/* -----------------------My orders */
+.orderDetails{
+    font-size: 18px;
 }
 /*------------- Register, login page and orderPage-----------  */
 
@@ -503,16 +524,10 @@ figcaption {
 
 
 
-/* footer */
-/* #footer{
-    
-    position: fixed;
-    bottom: 0px;
-    right: 0;
-    left: 0;
-    height: 50px;
-    padding: .5rem;
-    text-align: center;
-    background-color: coral;
-    
-} */
+/* ---------------------------aboutUs---------------------------- */
+.aboutUs{
+    /* width: 100px; */
+    /* border: 2px solid black; */
+    /* margin: 0 20px; */
+    height: 525px;
+}

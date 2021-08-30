@@ -37,6 +37,7 @@ function checkAccess(pageName, role) {
 
 (function() {
     console.log("Routes initializing")
+    
     let user = JSON.parse(localStorage.getItem("LOGGED_IN_USER"));
     let role = user != null ? user.role : null;
     let pathName = window.location.pathname.substr(1);
