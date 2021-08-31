@@ -4,9 +4,9 @@ let usrData=JSON.parse(localStorage.getItem("LOGGED_IN_USER"));
 
 crud.findOrders(usrData.email).then(res=>{
     // console.log(res.data)
-    console.log(usrData.email)
+    // console.log(usrData.email)
     let orders=res.data.docs
-    console.log(orders)
+    // console.log(orders)
     let content =`
     <table class="contentTable">
     <thead>
@@ -59,9 +59,14 @@ crud.findOrders(usrData.email).then(res=>{
         content+=`
         <td class="orderDetails">₹${order.totalAmount}</td>
         <td class="orderDetails">${order.status}</td>
-        <td><button class="deleteBtn" onclick="updateStatus('${order._id}')" type="button">cancel </button></td>
-        </tr>
-        `;
+        <td>`;
+
+        if(order.status =='ORDERED'){
+        content+=`
+        <button class="deleteBtn" onclick="cancelOrder('${order._id}')" type="button">cancel </button>`;
+        }
+        content+=`</td> </tr> `;
+
         count++;
     }
     content+=`
@@ -75,14 +80,42 @@ crud.findOrders(usrData.email).then(res=>{
     console.log(err.resposne)
 })
 
-function updateStatus(id){
+function cancelOrder(id){
 
-    
+    let cfm = confirm("Do you want to cancel ?");
+
+    if(cfm){
     crud.findDataById('giftshop_orders',id).then(res=>{
         
+
+// alert('hi')
         let orderObj=res.data;
+        console.table   ('yes',orderObj)
+        
+        
+
+        for(let userProduct of orderObj.products){
+            // console.table(userProduct)
+
+            crud.findDataById('giftshop_products',userProduct.id).then(res=>{
+                let productInDb=res.data;
+                // console.log(productInDb)
+                productInDb.quantity=productInDb.quantity+userProduct.quantity;
+                let updateObj={
+                    database:'giftshop_products',
+                    updateData:productInDb
+                };
+                crud.updateData(updateObj).then(res=>{
+                    
+
+
+                });
+            })
+        }
+
+
         orderObj.status="CANCELED";
-        console.table(orderObj)
+        // console.table(orderObj)  
 
         let updateObj={
             database:'giftshop_orders',
@@ -97,5 +130,8 @@ function updateStatus(id){
             alert("updation failed");
             console.log(err.resposne.data)
         })
-    });
+
+    
+
+    });}    
 }
