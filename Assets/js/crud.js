@@ -76,11 +76,12 @@ class crud {
  * the parameters are database and updateData
  */
     static updateData(object){
+        console.table(object.updateData)
         let updateObj=object.updateData;
         let database=object.database;
         const id = updateObj._id;
         const rev = updateObj._rev;
-        const url=endpoint+database+'/'+id+'?rev='+rev;
+        const url=endpoint+database+'/'+id+'/?rev='+rev;
         return axios.put(url,updateObj,{headers:{Authorization:basicAuth}});
     }
 }

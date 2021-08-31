@@ -41,7 +41,7 @@ function cartItems() {
     <td>${count}</td>
     <td><a style="color:black;" href="productSpec.html">${items.productName}</a></td>
     <td>${items.price}</td>
-    <td ><input id="${count - 1}" class="cartQuantityTable" type ="number" value="${items.quantity}"></td>
+    <td ><input id="${count - 1}" class="cartQuantityTable" type ="number" max="${items.totalQuantity}" value="${items.quantity}"></td>
     <td>${total}</td>
     <td><button class="deleteBtn" type="submit" onclick="deleteCartData(${count - 1})">delete</button></td>
 </tr>`;
@@ -73,19 +73,7 @@ function cartItems() {
     document.querySelector(".cartData").innerHTML = content;//pasting the html data at .cartData class
 }
 
-// updation in cart
 
-
-document.body.addEventListener('focusout', update);
-function update(e) {
-
-
-    let id = e.target.id;
-    let cartElements = JSON.parse(localStorage.getItem("cartElements"))
-    cartElements[id].quantity = parseInt(e.target.value);
-    localStorage.setItem("cartElements", JSON.stringify(cartElements))
-    window.location.reload()
-}
 
 
 
@@ -119,8 +107,7 @@ function cartCheck() {
 }
 
 // adding product to cart
-function toCart(id, name, imageUrl, price, description) {
-// document.getElementsByClassName('addCartBtn').disabled=true;
+function toCart(id, name, imageUrl, price, description,totalQuantity,rev) {
     let loginCheck = JSON.parse(localStorage.getItem("isLoggedIn"));
     if (!loginCheck) {
         alert("need to login first")
@@ -136,19 +123,38 @@ function toCart(id, name, imageUrl, price, description) {
         if (index != -1) {
             let cartObj = cartProducts[index];
             console.log(cartObj);
+            if(cartObj.quantity<totalQuantity){
             cartObj.quantity++;
-            cartProducts[index] = cartObj;
+            cartProducts[index] = cartObj;}
+            
         }
         else {
             // if item not exist, add new item to cart
-            let cartObj = { id: id, productName: name, price: price, imageUrl: imageUrl, description: description, quantity: quantity };
-            console.log(cartObj);
+            let cartObj = { id: id, productName: name, price: price, imageUrl: imageUrl, description: description, quantity: quantity,totalQuantity:totalQuantity,rev:rev };
+            console.table(cartObj);
             cartProducts.push(cartObj);
         }
         localStorage.setItem("cartElements", JSON.stringify(cartProducts));
         toast.show("added to cart",'sucess');
-        // document.getElementsByClassName('addToCart').disabled=false;
-        // window.location.href = "cart.html";
     }
 
+}
+// updation in cart
+
+
+document.body.addEventListener('focusout', update);
+function update(e) {
+
+
+    let id = e.target.id;
+    let cartElements = JSON.parse(localStorage.getItem("cartElements"))
+    if(e.target.value<=cartElements[id].totalQuantity){
+    cartElements[id].quantity = parseInt(e.target.value);
+    localStorage.setItem("cartElements", JSON.stringify(cartElements))
+    window.location.reload()}
+    else{
+        
+        alert('stock has only '+cartElements[id].totalQuantity+' items')
+        window.location.reload()
+    }
 }

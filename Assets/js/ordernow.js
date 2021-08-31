@@ -23,11 +23,6 @@ function orderNow() {
         alert("phonenumber should be 10 numbers");
         return;
     }
-    // alert(phoneNumber[0])
-    // if(phoneNumber[0]!='9' || phoneNumber[0]!='8' || phoneNumber[0]!=7){
-    //     alert("phone number should start with 7 or 8 or 9")
-    //     return
-    // }
     let products = JSON.parse(localStorage.getItem("cartElements"));
 
     let orderObj = {
@@ -49,10 +44,34 @@ function orderNow() {
     console.log(orderObj);
 
     let orderDetail = crud.addData(orderObj, "giftshop_orders");
+    
 
+  
     orderDetail.then(res => {
         // productReport
-        
+        // console.table(products)
+        // alert('wait')
+        for(let product of products){
+            console.table(product)
+            let productObj={
+                _id:product.id,
+                _rev:product.rev,
+                name:product.productName,
+                price: product.price,
+                imageUrl: product.imageUrl,
+                quantity: product.totalQuantity-product.quantity,
+                description:product.description
+            };
+            console.table(productObj)
+            console.log('id',productObj._id)
+            console.log('rev',productObj._rev)
+            let updateObj={
+                database:'giftshop_products',
+                updateData:productObj
+            };
+            crud.updateData(updateObj);
+
+        }
         
         console.log(res.data);
         localStorage.removeItem("cartElements");

@@ -52,8 +52,9 @@ function displayProduct(){
             <figcaption>${productItem.name}</figcaption>
             </figure>
             </a>
+            <p class="productQuantity" >${productItem.quantity}</p>
             <p class="productPrice" id="productPrice" >₹${productItem.price}</p>
-                <button class="addCartBtn" type="submit"onclick="toCart('${productItem._id}','${productItem.name}','${productItem.imageUrl}','${productItem.price}','${productItem.description}')">Add to cart</button>
+                <button class="addCartBtn" type="submit"onclick="toCart('${productItem._id}','${productItem.name}','${productItem.imageUrl}','${productItem.price}','${productItem.description}',${productItem.quantity},'${productItem._rev}')">Add to cart</button>
         </div>`;
         //for printing only 4 elements in a row
         count = count + 1;
