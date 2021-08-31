@@ -69,15 +69,17 @@ function orderNow() {
                 database:'giftshop_products',
                 updateData:productObj
             };
-            crud.updateData(updateObj);
+            crud.updateData(updateObj).then(res=>{
+
+                console.log(res.data);
+                localStorage.removeItem("cartElements");
+                localStorage.removeItem("totalAmount", null);
+                alert("your order has been plcaed successfully");
+                window.location.href = "product.html";
+            })
 
         }
         
-        console.log(res.data);
-        localStorage.removeItem("cartElements");
-        localStorage.removeItem("totalAmount", null);
-        alert("your order has been plcaed successfully");
-        window.location.href = "product.html";
     }).catch(err => {
         alert("an error has occured");
         console.log(err.response.data);

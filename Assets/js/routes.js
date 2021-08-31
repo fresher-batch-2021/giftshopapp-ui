@@ -41,6 +41,8 @@ function checkAccess(pageName, role) {
     let user = JSON.parse(localStorage.getItem("LOGGED_IN_USER"));
     let role = user != null ? user.role : null;
     let pathName = window.location.pathname.substr(1);
+    
+    console.log(user.role)
     let allowedAccess = checkAccess(pathName, role);
 
    

@@ -108,6 +108,10 @@ function cartCheck() {
 
 // adding product to cart
 function toCart(id, name, imageUrl, price, description,totalQuantity,rev) {
+    if(totalQuantity<=0){
+        toast.show('no stock','error');
+        return;
+    }
     let loginCheck = JSON.parse(localStorage.getItem("isLoggedIn"));
     if (!loginCheck) {
         alert("need to login first")
