@@ -1,13 +1,6 @@
-
-
-
-
-
-
-
 function register() {
     
-    // document.getElementById('#registerBtn').disabled=true;
+    document.getElementById('registerBtn').disabled = true;
     event.preventDefault();
 
     const name = document.querySelector("#registerName").value;
@@ -16,56 +9,81 @@ function register() {
     const confirmPassword = document.querySelector("#registerConfirm").value;
 
 
-    bussinessValidation(email)
-        .then(res => {
-        
-            let data = res.data.docs;
+
+
+
+    if (password.length < 8) {
+
+        toastr.warning("warning", "password must be atleast 8 characters ", {
+            timeOut: 2500,
+            positionClass: 'toast-top-center',
+            preventDuplicates: true
+        });
+        setTimeout(function () {
+            document.getElementById('registerBtn').disabled = false;
+        }, 1000)
+
+
+    } else if (password != confirmPassword) {
+        toastr.warning("", "password doesnot match", {
+            timeOut: 2500,
+            positionClass: 'toast-top-center',
+            preventDuplicates: true
+        });
+        setTimeout(function () {
+            document.getElementById('registerBtn').disabled = false;
+        }, 1000)
+    } else {
+        // object sending to backend
+        let registerObj = {
+            "name": name,
+            "email": email,
+            "password": password,
+            "role": "USER"
+        };
+
+        bussinessValidation(email).then(res => {
+
+            let data = res.data.docs[0];
             console.log(data)
-            if (data != "") {
-                alert("email already exist enter different email")
-                window.location.reload();
-                throw new Error("email already exist")
+            if (data!=undefined) {
+
+                toastr.error("", "email already exist enter different email", {
+                    timeOut: 1000,
+                    positionClass: 'toast-top-center',
+                    preventDuplicates: true
+                });
+                setTimeout(function () {
+                    document.getElementById('registerBtn').disabled = false;
+                }, 1000)
+            } else {
+
+                //regitering the data to backend
+                crud.addData(registerObj, "giftshop_user").then(response => {
+
+                    toastr.success("", "registration successful", {
+                        timeOut: 800,
+                        positionClass: 'toast-top-center',
+                        preventDuplicates: true
+                    });
+
+                    setTimeout(function () {
+                        document.getElementById('registerBtn').disabled = false;
+                        window.location.href = "login.html";
+                    }, 800);
+                }).catch(err => {
+                    console.log(err.response);
+                    toastr.error("", "Registration failed", {
+                        timeOut: 1500,
+                        positionClass: 'toast-top-center',
+                        preventDuplicates: true
+                    });
+
+                });
             }
-
-    if (name == "" || name == null || name.trim() == "") {
-        alert("invalid not valid");
-    }
-    else if (password.length < 8) {
-        alert("password is less than 8 characters");
-    }
-    else
-        if (password != confirmPassword) {
-            alert("password doesnot match");
-        }
-        else {
-            // backend
-            let registerObj = {
-                "name": name,
-                "email": email,
-                "password": password,
-                "role": "USER"
-            };
-
-            crud.addData(registerObj, "giftshop_user").then(response => {
-                
-        
-                alert("registration successful");
-                
-                // document.getElementById('#registerBtn').disabled=false;
-                    
-                window.location.href = "login.html";
-            }).catch(err => {
-                console.log(err.response);
-                alert("Registration failed");
-            });
-        }
-            
-
-        }).catch(err => {
-            console.log(err.response.data)
         });
 
 
 
-    
+    }
 }
