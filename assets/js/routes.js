@@ -42,7 +42,7 @@ function checkAccess(pageName, role) {
     let role = user != null ? user.role : null;
     let pathName = window.location.pathname.substr(1);
     
-    console.log(user.role)
+    console.log(role)
     let allowedAccess = checkAccess(pathName, role);
 
    

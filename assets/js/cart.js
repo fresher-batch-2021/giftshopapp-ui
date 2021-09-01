@@ -109,7 +109,7 @@ function cartCheck() {
 // adding product to cart
 function toCart(id, name, imageUrl, price, description,totalQuantity,rev) {
     if(totalQuantity<=0){
-        toast.show('no stock','error');
+        alert("no stock")
         return;
     }
     let loginCheck = JSON.parse(localStorage.getItem("isLoggedIn"));
@@ -139,7 +139,7 @@ function toCart(id, name, imageUrl, price, description,totalQuantity,rev) {
             cartProducts.push(cartObj);
         }
         localStorage.setItem("cartElements", JSON.stringify(cartProducts));
-        toast.show("added to cart",'sucess');
+      alert("cart added sucessfully")
     }
 
 }

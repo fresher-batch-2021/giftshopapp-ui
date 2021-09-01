@@ -1,38 +1,66 @@
 
 function loginPage() {
-    document.getElementById('loginBtn').disabled=true;
+    document.getElementById('loginBtn').disabled = true;
     event.preventDefault();
     const email = document.querySelector("#loginEmail").value;
     const password = document.querySelector("#loginPassword").value;
-    
-switch(true){
-    case email.trim()=="":{alert("email can't be full of spaces"); break;}
-    case (password.trim() == ""):{alert("password cab't be empty"); break;}
 
-    default :{
-        
-        crud.login(email,password)
+    switch (true) {
+        case email.trim() == "": {
+            toastr.warning("warning", "email can't be full of spaces", { timeOut: 1000 });
+            document.getElementById('loginBtn').disabled = false;
+            break;
+        }
+        case (password.trim() == ""): {
+            toastr.warning("warning", "password can't be empty", { timeOut: 1000 });
+            document.getElementById('loginBtn').disabled = false;
+            break;
+        }
 
-        .then(res => {
-            let data = res.data.docs[0];
-            console.log(data)
-            if (data == undefined||data.length == 0) {
-                alert("Invalid credentials");
-            }
-            else {
-                localStorage.setItem("LOGGED_IN_USER", JSON.stringify(data));
-                alert("login succesful");
-                document.getElementById('loginBtn').disabled=false;
-    
-                window.location.href = "index.html";
-            }
-        }).catch(err => {
-            alert("erro")
-            if (err.response.data) {
-                console.log(err.response.data.errorMessage);
-            }
-            alert("login failed");
-            window.location.href = "login.html";
-        });
+        default: {
+
+            crud.login(email, password)
+
+                .then(res => {
+                    let data = res.data.docs[0];
+                    console.log(data)
+                    if (data == undefined || data.length == 0) {
+                        toastr.warning("warning", "Invalid Credentials", {
+                            timeOut: 1000
+                        });
+                        setTimeout(function () {
+                            document.getElementById('loginBtn').disabled = false;
+                        }, 1000)
+                    }
+                    else {
+
+                        localStorage.setItem("LOGGED_IN_USER", JSON.stringify(data));
+
+                        toastr.success("sucess", "Login Succesful", {
+                            iconClass: 'customer-info',
+                            timeOut: 5000
+                            // progressBar:true
+                        });
+                        setTimeout(function () {
+                            document.getElementById('loginBtn').disabled = false;
+                            window.location.href = "index.html";
+                        }, 1000);
+
+
+                    }
+                }).catch(err => {
+                    toastr.error("error", "Login Failed", {
+                        timeOut: 1000
+                    });
+                    // timer 
+                    setTimeout(function () {
+                        document.getElementById('loginBtn').disabled = false;
+                        if (err.response.data) {
+                            console.log(err.response.data.errorMessage);
+                        }
+                        window.location.href = "login.html";
+                    }, 1000);
+                });
+        }
     }
-}}
+}

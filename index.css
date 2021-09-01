@@ -41,42 +41,12 @@ button{
   .orderBtn{
     background-color: #6ce270;
   }
-/* --------------------------------------------toast-------------------------------- */
-.toast{
-    text-align: center;
-    position: fixed;
-    top: 0px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    max-width: 400px;
-    z-index: 3;
-    background-color: burlywood;
-    background-color: cornsilk;
-    font-family: sans-serif;
-    border: 1px solid gray;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    height: 40px;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.2s , top 0.2s,visibility 0.2s;
-}
-.toast--visible{
-    top: 20px;
-    visibility: visible;
-    opacity: 1;
-}
-.toast--sucess{
-    background-color: #00c02b;
-    border-color: #009d23;
-    color: #fff;
-}
-.toast--error{
-    background-color: #d50000;
-    border-color: #ba0000;
-    color: #fff;
-}
+/* --------------------------------------------toastr-------------------------------- */
+#toast-container > .customer-info {            
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVEhLtZa9SgNBEMc9sUxxRcoUKSzSWIhXpFMhhYWFhaBg4yPYiWCXZxBLERsLRS3EQkEfwCKdjWJAwSKCgoKCcudv4O5YLrt7EzgXhiU3/4+b2ckmwVjJSpKkQ6wAi4gwhT+z3wRBcEz0yjSseUTrcRyfsHsXmD0AmbHOC9Ii8VImnuXBPglHpQ5wwSVM7sNnTG7Za4JwDdCjxyAiH3nyA2mtaTJufiDZ5dCaqlItILh1NHatfN5skvjx9Z38m69CgzuXmZgVrPIGE763Jx9qKsRozWYw6xOHdER+nn2KkO+Bb+UV5CBN6WC6QtBgbRVozrahAbmm6HtUsgtPC19tFdxXZYBOfkbmFJ1VaHA1VAHjd0pp70oTZzvR+EVrx2Ygfdsq6eu55BHYR8hlcki+n+kERUFG8BrA0BwjeAv2M8WLQBtcy+SD6fNsmnB3AlBLrgTtVW1c2QN4bVWLATaIS60J2Du5y1TiJgjSBvFVZgTmwCU+dAZFoPxGEEs8nyHC9Bwe2GvEJv2WXZb0vjdyFT4Cxk3e/kIqlOGoVLwwPevpYHT+00T+hWwXDf4AJAOUqWcDhbwAAAAASUVORK5CYII=") !important;
+    background-color: #41ce46;
+    color: cornsilk;
+  }
 /* -------------------------------------------navbar --------------------------------*/
 
 .navbar{

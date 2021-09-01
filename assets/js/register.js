@@ -1,4 +1,4 @@
-// toast
+
 
 
 
@@ -49,14 +49,12 @@ function register() {
             crud.addData(registerObj, "giftshop_user").then(response => {
                 
         
-                toast.show("registration scucessfull",'sucess')
                 alert("registration successful");
                 
                 // document.getElementById('#registerBtn').disabled=false;
                     
                 window.location.href = "login.html";
             }).catch(err => {
-                toast.show('registration failed','error')
                 console.log(err.response);
                 alert("Registration failed");
             });
