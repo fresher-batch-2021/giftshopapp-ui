@@ -6,8 +6,7 @@ const routes = [
     { path: 'aboutUs.html' },
     { path: 'login.html' },
     { path: 'register.html' },
-    // { path: 'myorders.html'},
-    { path: 'myOrders.html'},    
+    { path: 'myOrder.html' , roles: ["USER","ADMIN"]},    
     { path: 'ordernow.html',roles: ["USER","ADMIN"]}
 ];
 // =====
@@ -23,6 +22,7 @@ function checkAccess(pageName, role) {
     console.log("pageName",pageName)
     console.log("role",role)
     let allowed = false;
+    
     for (let route of routes) {
         
         if (route.path == pageName) {

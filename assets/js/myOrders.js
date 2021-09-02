@@ -117,15 +117,15 @@ function cancelOrder(id){
             updateData:orderObj
         }
         
-        crud.updateData(updateObj).then(resposne=>{
-            console.log(resposne.data)
+        crud.updateData(updateObj).then(ress=>{
+            console.log(ress.data)
 
             alert("updated");
             // toastr.su
             window.location.reload();
         }).catch(err=>{
             alert("updation failed");
-            console.log(err.resposne.data)
+            console.log(err.ress.data)
         })
 
     
