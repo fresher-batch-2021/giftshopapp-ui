@@ -37,7 +37,7 @@ function checkAccess(pageName, role) {
             }
         }
     }
-    if(pageName=='myOrder'){
+    if(pageName=='myOrder.html'){
         if(role=='ADMIN'){
             allowed=true;
         }
