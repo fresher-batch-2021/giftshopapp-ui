@@ -9,11 +9,11 @@ crud.findOrders(usrData.email).then(res=>{
     <table class="contentTable">
     <thead>
         <tr>
-            <th class="leftCorner">s.no</th>
-            <th>products</th>
-            <th>totalAmount</th>
-            <th>status</th>
-            <th class="rightCorner">change status</th>
+            <th class="leftCorner">S.no</th>
+            <th>Products</th>
+            <th>TotalAmount</th>
+            <th>Status</th>
+            <th class="rightCorner">Change status</th>
         </tr>
     </thead>
     <tbody>
@@ -27,9 +27,9 @@ crud.findOrders(usrData.email).then(res=>{
         <table class="innerTable">
         <thead>
             <tr >
-                <th class="leftCorner">product</th>
+                <th class="leftCorner">Product</th>
                 <th>price</th>
-                <th class="rightCorner">quantity</th>
+                <th class="rightCorner">Quantity</th>
             </tr>
         </thead>
         <tbody>
