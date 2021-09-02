@@ -18,8 +18,10 @@ function logout() {
 }
 // ======
 function checkAccess(pageName, role) {
-    alert(pageName)
-    alert(role)
+    // alert("page",pageName)
+    // alert(role)
+    console.log("pageName",pageName)
+    console.log("role",role)
     let allowed = false;
     for (let route of routes) {
         
