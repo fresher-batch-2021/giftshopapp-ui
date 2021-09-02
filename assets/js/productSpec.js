@@ -15,6 +15,8 @@ function productSpec() {
         const imageUrl = value.imageUrl;
         const price = value.price;
         const description = value.description;
+        const quantity =value.quantity;
+        const rev = value._rev;
 
         let content =
             `<img src="assets/Images/${imageUrl}" alt="">
@@ -23,7 +25,7 @@ function productSpec() {
         <p>${price}</p>
         <br>
         <p>${description}</p>
-        <button onclick="toCart('${id}','${name}','${imageUrl}',${price},'${description}')">add to cart</button>
+        <button onclick="toCart('${id}','${name}','${imageUrl}',${price},'${description}',${quantity},'${rev}')">add to cart</button>
         `;
         document.querySelector(".productSpec").innerHTML = content;
         
