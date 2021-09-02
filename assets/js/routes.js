@@ -37,12 +37,6 @@ function checkAccess(pageName, role) {
             }
         }
     }
-    if(pageName=='myOrder'){
-        if(role=='ADMIN'){
-            allowed=true;
-        }
-    }
-    alert(pageName);
     return allowed;
 }
 
