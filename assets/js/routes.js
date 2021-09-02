@@ -6,8 +6,8 @@ const routes = [
     { path: 'aboutUs.html' },
     { path: 'login.html' },
     { path: 'register.html' },
-    { path: 'myorders.html',roles: ["USER","ADMIN"]},
-    { path: 'myOrders.html',roles: ["USER","ADMIN"]},
+    // { path: 'myorders.html'},
+    { path: 'myOrders.html'},
     { path: 'ordernow.html',roles: ["USER","ADMIN"]}
 ];
 // =====
