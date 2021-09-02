@@ -3,7 +3,7 @@ const routes = [
     { path: 'product.html' },
     { path: 'productSpec.html' },
     { path: 'cart.html', roles: ["USER","ADMIN"] },
-    { path: 'aboutUs.html' },
+    { path: 'AboutUs.html' },
     { path: 'login.html' },
     { path: 'register.html' },
     { path: 'myOrder.html' , roles: ["USER","ADMIN"]},    
