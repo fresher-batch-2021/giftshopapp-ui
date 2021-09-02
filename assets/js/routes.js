@@ -8,6 +8,7 @@ const routes = [
     { path: 'register.html' },
     // { path: 'myorders.html'},
     { path: 'myOrders.html'},
+    { path: 'myOrders'},
     { path: 'ordernow.html',roles: ["USER","ADMIN"]}
 ];
 // =====
