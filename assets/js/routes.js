@@ -18,6 +18,7 @@ function logout() {
 }
 // ======
 function checkAccess(pageName, role) {
+    alert(pageName,role)
     let allowed = false;
     for (let route of routes) {
         
