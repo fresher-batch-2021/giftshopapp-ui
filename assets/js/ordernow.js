@@ -20,7 +20,12 @@ function orderNow() {
     let totalAmount = localStorage.getItem("totalAmount");
 
     if (phoneNumber.length != 10) {
-        alert("phonenumber should be 10 numbers");
+        toastr.warning("","phonenumber should be 10 numbers",{
+            timeOut:1000,
+            positionClass:'toast-top-center',
+            preventDuplicates:true
+        });
+        
         return;
     }
     let products = JSON.parse(localStorage.getItem("cartElements"));
@@ -48,9 +53,7 @@ function orderNow() {
 
   
     orderDetail.then(res => {
-        // productReport
-        // console.table(products)
-        // alert('wait')
+        
         for(let product of products){
             console.table(product)
             let productObj={
@@ -74,14 +77,26 @@ function orderNow() {
                 console.log(res.data);
                 localStorage.removeItem("cartElements");
                 localStorage.removeItem("totalAmount", null);
-                alert("your order has been plcaed successfully");
-                window.location.href = "product.html";
+
+                toastr.success("","your order has been placed successfully",{
+                    timeOut:1000,
+                    positionClass:'toast-top-center',
+                    preventDuplicates:true
+                })
+                setTimeout(function(){
+                    window.location.href = "product.html";
+                },800)
+                
             })
 
         }
         
     }).catch(err => {
-        alert("an error has occured");
+        toastr.error("","an error has occured",{
+            timeOut:1000,
+            positionClass:'toast-top-center',
+            preventDuplicates:true
+        });
         console.log(err.response.data);
     });
 }

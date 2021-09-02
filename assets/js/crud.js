@@ -35,6 +35,7 @@ class crud {
         const url = endpoint + database + '/' + id + '?rev=' + rev;
 
         axios.delete(url, { headers: { Authorization: basicAuth } }).then(res => {
+            
             alert("deleted succesfully");
             window.location.href = succes;
 

@@ -3,10 +3,8 @@
 let usrData=JSON.parse(localStorage.getItem("LOGGED_IN_USER"));
 
 crud.findOrders(usrData.email).then(res=>{
-    // console.log(res.data)
-    // console.log(usrData.email)
+   
     let orders=res.data.docs
-    // console.log(orders)
     let content =`
     <table class="contentTable">
     <thead>
@@ -41,7 +39,6 @@ crud.findOrders(usrData.email).then(res=>{
         <td>${count}</td>
         <td>
         `;
-        // console.log("yesh",order.products)
         for(let product of order.products){
             table+=`
             <tr>
@@ -87,8 +84,6 @@ function cancelOrder(id){
     if(cfm){
     crud.findDataById('giftshop_orders',id).then(res=>{
         
-
-// alert('hi')
         let orderObj=res.data;
         console.table   ('yes',orderObj)
         
@@ -124,7 +119,9 @@ function cancelOrder(id){
         
         crud.updateData(updateObj).then(resposne=>{
             console.log(resposne.data)
+
             alert("updated");
+            // toastr.su
             window.location.reload();
         }).catch(err=>{
             alert("updation failed");

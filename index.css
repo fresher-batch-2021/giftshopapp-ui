@@ -477,6 +477,9 @@ figcaption {
     
 }
 /* login page */
+.loginBox{
+    padding-bottom: 195px;
+}
 .loginContainer{
     border: 2px solid #2a9d8f;
     border-radius: 12px;

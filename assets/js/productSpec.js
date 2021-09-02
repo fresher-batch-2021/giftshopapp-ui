@@ -28,6 +28,8 @@ function productSpec() {
         document.querySelector(".productSpec").innerHTML = content;
         
     }).catch(err => {
+
+        
         alert("failed on getting data");
         console.log(err.resposnse.data);
         

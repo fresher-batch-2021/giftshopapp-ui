@@ -32,7 +32,7 @@ function search(){
         product()
         return
     }
-    products=products.filter(obj=>obj.name.toLowerCase()==searchValue.toLowerCase())
+    products=products.filter(obj=>obj.name.toLowerCase().indexOf(searchValue.toLowerCase())!=-1)
     console.table(products)
     displayProduct();
 }

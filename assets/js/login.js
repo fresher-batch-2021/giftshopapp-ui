@@ -1,3 +1,17 @@
+// auth gaurd error message display in login page not in unauthorized page
+// continutiy in routes.js
+const param = new URLSearchParams(window.location.search.substr(1));
+let usrMsg = param.get("alert");
+
+setTimeout(function(){
+    if(usrMsg){
+        toastr.info("",usrMsg,{
+            timeOut:1000,
+            positionClass:'toast-top-center',
+            preventDuplicates:true
+        });
+        }
+},800)
 
 function loginPage() {
     document.getElementById('loginBtn').disabled = true;
