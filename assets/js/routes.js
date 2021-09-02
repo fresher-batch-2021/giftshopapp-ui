@@ -37,6 +37,11 @@ function checkAccess(pageName, role) {
             }
         }
     }
+    if(pageName=='myOrder'){
+        if(role=='USER'){
+            allowed=true;
+        }
+    }
     return allowed;
 }
 
