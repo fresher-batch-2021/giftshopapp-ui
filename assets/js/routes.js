@@ -42,6 +42,7 @@ function checkAccess(pageName, role) {
             allowed=true;
         }
     }
+    alert(pageName);
     return allowed;
 }
 
