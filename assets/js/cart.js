@@ -41,8 +41,8 @@ function cartItems() {
     <td>${count}</td>
     <td><a style="color:black;" href="productSpec.html">${items.productName}</a></td>
     <td>${items.price}</td>
-    <td ><input id="${count - 1}" class="cartQuantityTable" type ="number" max="${items.totalQuantity}" value="${items.quantity}"></td>
-    <td>${total}</td>
+    <td ><input id="${count - 1}" class="cartQuantityTable" type ="number" min="1" max="${items.totalQuantity}" value="${items.quantity}"></td>
+    <td id="productTotal">${total}</td>
     <td><button class="deleteBtn" type="submit" onclick="deleteCartData(${count - 1})">delete</button></td>
 </tr>`;
 
@@ -158,7 +158,7 @@ function toCart(id, name, imageUrl, price, description,totalQuantity,rev) {
         }
         else {
             // if item not exist, add new item to cart
-            let cartObj = { id: id, productName: name, price: price, imageUrl: imageUrl, description: description, quantity: quantity,totalQuantity:totalQuantity,rev:rev };
+            let cartObj = { id: id, productName: name, price: price, imageUrl: imageUrl, description: description, quantity: quantity,totalQuantity:totalQuantity,rev:rev ,type:"products"};
             console.table(cartObj);
             cartProducts.push(cartObj);
         }
@@ -178,24 +178,44 @@ function toCart(id, name, imageUrl, price, description,totalQuantity,rev) {
 document.body.addEventListener('focusout', update);
 function update(e) {
 
-
+    // let productTotal=document.querySelector('#productTotal');
     let id = e.target.id;
     let cartElements = JSON.parse(localStorage.getItem("cartElements"))
-    if(e.target.value<=cartElements[id].totalQuantity){
+    if(e.target.value<=0){
+        toastr.warning("",`Can't do that try ordering more`,{
+            timeOut:2000,
+            positionClass:'toast-top-center',
+            preventDuplicates:true
+        });
+        cartItems();
+    }
+    else if(e.target.value<=cartElements[id].totalQuantity){
     cartElements[id].quantity = parseInt(e.target.value);
-    localStorage.setItem("cartElements", JSON.stringify(cartElements))
+    
+    // productTotal.value=cartElements[id].quantity*cartElements[id].price;
+    // window.location.reload()
     // e.target.value=e.target.value
+    // cartItems();
+    
     }
     else{
-        
         toastr.info("",`Stock has only ${cartElements[id].totalQuantity} items`,{
             timeOut:1000,
             positionClass:'toast-top-center',
             preventDuplicates:true
         });
-
-        setTimeout(function(){
         e.target.value=cartElements[id].totalQuantity
-        },1000)
+        cartElements[id].quantity=cartElements[id].totalQuantity;
+        
+
+        
     }
+
+    setTimeout(function(){
+        
+    localStorage.setItem("cartElements", JSON.stringify(cartElements))
+    cartItems();
+        },800)
+    
+    
 }

@@ -3,7 +3,7 @@
 let usrData=JSON.parse(localStorage.getItem("LOGGED_IN_USER"));
 
 crud.findOrders(usrData.email).then(res=>{
-   
+//    console.log(res)
     let orders=res.data.docs
     let content =`
     <table class="contentTable">
@@ -82,22 +82,23 @@ function cancelOrder(id){
     let cfm = confirm("Do you want to cancel ?");
 
     if(cfm){
-    crud.findDataById('giftshop_orders',id).then(res=>{
+    crud.findDataById('giftshop',id).then(res=>{
         
         let orderObj=res.data;
-        console.table   ('yes',orderObj)
+        console.log   ('orderObj',orderObj)
         
         
 
         for(let userProduct of orderObj.products){
             // console.table(userProduct)
 
-            crud.findDataById('giftshop_products',userProduct.id).then(res=>{
+            crud.findDataById('giftshop',userProduct.id).then(res=>{
                 let productInDb=res.data;
                 // console.log(productInDb)
                 productInDb.quantity=productInDb.quantity+userProduct.quantity;
+                console.table("yeshwamf",productInDb)
                 let updateObj={
-                    database:'giftshop_products',
+                    database:'giftshop',
                     updateData:productInDb
                 };
                 crud.updateData(updateObj).then(res=>{
@@ -113,18 +114,19 @@ function cancelOrder(id){
         // console.table(orderObj)  
 
         let updateObj={
-            database:'giftshop_orders',
+            database:'giftshop',
             updateData:orderObj
         }
-        
+        // alert('trying')
         crud.updateData(updateObj).then(ress=>{
             console.log(ress.data)
 
-            alert("updated");
-            // toastr.su
+            // alert("updated");
+            toastr.info("product cancelled")
             window.location.reload();
         }).catch(err=>{
-            alert("updation failed");
+            // alert("updation failed");
+            toastr.error("cancellation failed")
             console.log(err.ress.data)
         })
 

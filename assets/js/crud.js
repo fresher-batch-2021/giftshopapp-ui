@@ -37,11 +37,12 @@ class crud {
 
         axios.delete(url, { headers: { Authorization: basicAuth } }).then(res => {
             
-            alert("deleted succesfully");
+            // alert("deleted succesfully");
+            console.log("deleted successfully")
             window.location.href = succes;
 
         }).catch(err => {
-            alert("error in deleting");
+            // alert("error in deleting");
             console.log(err.response.data);
 
         });
@@ -72,11 +73,12 @@ class crud {
         return axios.get(url, { headers: { Authorization: basicAuth } });
     }
     static findOrders(email){
-        const url=endpoint+'giftshop_orders/_find';
+        const url=endpoint+'giftshop/_find';
         let requestData =
         {
             selector: {
-                email: email
+                email: email,
+                type:"orders"
             },
             fields: ["products","totalAmount","status","email","_id","type"]
         };

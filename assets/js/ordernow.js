@@ -74,7 +74,6 @@ function orderNow() {
                 database:'giftshop',
                 updateData:productObj
             };
-            alert("stop")
             crud.updateData(updateObj).then(res=>{
 
                 console.log(res.data);
