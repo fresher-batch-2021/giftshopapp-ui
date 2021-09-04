@@ -53,7 +53,6 @@ function checkAccess(pageName, role) {
    
 
     if (!allowedAccess) {
-        // alert("You are not authorized to access this page. Redirecting to login page");
 
         window.location.href = "login.html?alert=you not authorized ";
     }

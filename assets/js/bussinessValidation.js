@@ -4,12 +4,13 @@ const dbPassword='3bc2893c0a2a1ec42d9b17840b18447b';
 let  endpoint='https://75b0afe3-3fa7-477b-8352-bdcfcd522a16-bluemix.cloudantnosqldb.appdomain.cloud/';
 const basicAuth='Basic '+btoa(dbUserName+':'+dbPassword);
     
-const url=endpoint+"giftshop_user/_find";
+const url=endpoint+"giftshop/_find";
 // ===
 let requestData =
 {
     selector: {
-        email: email
+        email: email,
+        type:"user"
     },
     fields: ["email"]
 };

@@ -15,6 +15,9 @@
         <a href="index.html"><img class="navbarimg" src="assets/Images/gift.png" alt=""></a>
         <p>Gift Corner</p>
         <div class="navlinks">
+
+            <a class="navlink"  data-user="User" id="usrDetail" ></a>
+
             <a class="navlink" href="login.html" data-loggedin="false">Login</a>
             <a class="navlink" href="register.html" data-loggedin="false">Register</a>
             <a class="navlink" onClick="logout()" data-loggedin="true">Logout</a>
@@ -45,6 +48,8 @@
         localStorage.setItem("isLoggedIn",JSON.stringify(true))
         $(".navlink[data-loggedin='true']").show();
         $(".navlink[data-loggedin='false']").hide();
+        console.log(userStatus.name);
+        document.querySelector('#usrDetail').innerHTML=`( Welcome ${userStatus.name} )`;
         // $("#profile").html("Welcome " + user.email + "!!!");
     } 
 

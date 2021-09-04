@@ -89,6 +89,10 @@ button{
     font-size: 20px;
     color: blue;
 }
+#usrDetail{
+    color: black;
+    font-size: 20px;
+}
 .navcontent{
     z-index: 2;
     /* clear: both; */

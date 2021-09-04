@@ -14,8 +14,9 @@ setTimeout(function(){
 },800)
 
 function loginPage() {
-    document.getElementById('loginBtn').disabled = true;
     event.preventDefault();
+    document.getElementById('loginBtn').disabled = true;
+    
     const email = document.querySelector("#loginEmail").value;
     const password = document.querySelector("#loginPassword").value;
 
