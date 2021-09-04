@@ -78,7 +78,7 @@ class crud {
             selector: {
                 email: email
             },
-            fields: ["products","totalAmount","status","email","_id"]
+            fields: ["products","totalAmount","status","email","_id","type"]
         };
         return axios.post(url, requestData, { headers: { Authorization: basicAuth } });
     }

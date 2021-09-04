@@ -35,6 +35,7 @@ function orderNow() {
         email:userData.email,
         address: address,
         phonenumber: phoneNumber,
+        type:"orders",
         products: products,
         payment: payment,
         totalAmount: totalAmount,
@@ -48,7 +49,7 @@ function orderNow() {
     };
     console.log(orderObj);
 
-    let orderDetail = crud.addData(orderObj, "giftshop_orders");
+    let orderDetail = crud.addData(orderObj, "giftshop");
     
 
   
@@ -63,15 +64,17 @@ function orderNow() {
                 price: product.price,
                 imageUrl: product.imageUrl,
                 quantity: product.totalQuantity-product.quantity,
-                description:product.description
+                description:product.description,
+                type:"products"
             };
             console.table(productObj)
             console.log('id',productObj._id)
             console.log('rev',productObj._rev)
             let updateObj={
-                database:'giftshop_products',
+                database:'giftshop',
                 updateData:productObj
             };
+            alert("stop")
             crud.updateData(updateObj).then(res=>{
 
                 console.log(res.data);
