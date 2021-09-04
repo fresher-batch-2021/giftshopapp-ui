@@ -40,7 +40,8 @@ function register() {
             "email": email,
             "password": password,
             "role": "USER",
-            "type":"user"
+            "type":"user",
+            "userStatus":true
         };
 
         bussinessValidation(email).then(res => {

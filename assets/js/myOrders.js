@@ -5,6 +5,12 @@ let usrData=JSON.parse(localStorage.getItem("LOGGED_IN_USER"));
 crud.findOrders(usrData.email).then(res=>{
 //    console.log(res)
     let orders=res.data.docs
+    console.log(orders)
+    if(orders==''){
+        
+        document.querySelector(".myOrders").innerHTML = `<a href='product.html'><p class="emptyCart">No previous Orders...</p></a>`;
+        return;
+    }
     let content =`
     <table class="contentTable">
     <thead>

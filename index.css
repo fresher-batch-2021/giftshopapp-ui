@@ -387,6 +387,11 @@ figcaption {
 .orderDetails{
     font-size: 18px;
 }
+.myOrdersContainer{
+    border: 2px solid transparent;
+   
+    margin-bottom: 345px;
+}
 /*------------- Register, login page and orderPage-----------  */
 
 /* common codes */

@@ -42,6 +42,19 @@ function loginPage() {
                     console.log(data)
                     if (data == undefined || data.length == 0) {
                         toastr.warning("warning", "Invalid Credentials", {
+                            // classPosition:'toast-top-center',
+                            preventDuplicates:true,
+                            timeOut: 2000
+                        });
+                        setTimeout(function () {
+                            document.getElementById('loginBtn').disabled = false;
+                        }, 1000)
+                    }
+                    else if(!data.userStatus){
+                        console.log(data.userStatus)
+                        toastr.warning("warning", "You have been blocked by the admin", {
+                            // classPosition:'toast-top-center',
+                            preventDuplicates:true,
                             timeOut: 1000
                         });
                         setTimeout(function () {

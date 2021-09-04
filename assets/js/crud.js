@@ -16,7 +16,7 @@ class crud {
                 password:password,
                 type:"user"
             },
-            fields: ["id", "name", "email","role"]
+            fields: ["id", "name", "email","role","userStatus"]
         };
         return axios.post(url, requestData, { headers: { Authorization: basicAuth } });
             
