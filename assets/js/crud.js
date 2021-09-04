@@ -14,7 +14,7 @@ class crud {
             selector: {
                 email: email,
                 password:password,
-                tupe:"user"
+                type:"user"
             },
             fields: ["id", "name", "email","role"]
         };
