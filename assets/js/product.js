@@ -1,9 +1,11 @@
 let products=[];
 function product() {
     //sending data to server
-        crud.getData("giftshop_products").then(res =>{
-            let data=res.data.rows;
-             products=data.map(obj=>obj.doc);
+        crud.getDataByType("products").then(res =>{
+            // console.log(res.data.docs)
+            // let data=res.data.docs;
+            //  products=data.map(obj=>obj.doc);
+            products=res.data.docs;
             console.log(products);
             displayProduct();
     

@@ -6,9 +6,9 @@ const basicAuth = 'Basic ' + btoa(dbUserName + ':' + dbPassword);
 
 
 class crud {
-    // login user
+    // login user------------------------------------------------------------------------couch
     static login(email, password) {
-        const url = 'https://75b0afe3-3fa7-477b-8352-bdcfcd522a16-bluemix.cloudantnosqldb.appdomain.cloud/giftshop/_find';
+        const url = 'https://75b0afe3-3fa7-477b-8352-bdcfcd522a16-bluemix.cloudantnosqldb.appdomain.cloud/giftshop_user/_find';
         let requestData =
         {
             selector: {
@@ -52,6 +52,17 @@ class crud {
         const endUrl = "/_all_docs?include_docs=true";
         const url = endpoint + database + endUrl;
         return axios.get(url, { headers: { Authorization: basicAuth } });
+    }
+
+    // getData----------------------------------------------------------couch
+    static getDataByType(type) {
+        const url = endpoint + 'giftshop/_find';
+        let requestObj={
+           selector:{
+            type:type
+        }
+        }
+        return axios.post(url,requestObj, { headers: { Authorization: basicAuth } });
     }
 
     // find data
