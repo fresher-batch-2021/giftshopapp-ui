@@ -39,7 +39,8 @@ function register() {
             "name": name,
             "email": email,
             "password": password,
-            "role": "USER"
+            "role": "USER",
+            "type":"user"
         };
 
         bussinessValidation(email).then(res => {
@@ -59,7 +60,7 @@ function register() {
             } else {
 
                 //regitering the data to backend
-                crud.addData(registerObj, "giftshop_user").then(response => {
+                crud.addData(registerObj, "giftshop").then(response => {
 
                     toastr.success("", "registration successful", {
                         timeOut: 800,

@@ -37,6 +37,7 @@ function loginPage() {
             crud.login(email, password)
 
                 .then(res => {
+                    console.log(res)
                     let data = res.data.docs[0];
                     console.log(data)
                     if (data == undefined || data.length == 0) {
