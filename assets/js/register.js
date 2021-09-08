@@ -1,3 +1,5 @@
+import { ValidationService } from "./validator";
+
 function register() {
     
     document.getElementById('registerBtn').disabled = true;
@@ -9,8 +11,12 @@ function register() {
     const confirmPassword = document.querySelector("#registerConfirm").value;
 
 
+    let validation=new ValidationService()
+    try{
+        validation.isValidPassword(password,"Password Must Be Greater Than 8")
 
-
+    
+   
 
     if (password.length < 8) {
 
@@ -41,7 +47,8 @@ function register() {
             "password": password,
             "role": "USER",
             "type":"user",
-            "userStatus":true
+            "userStatus":true,
+            "isUserActive":true
         };
 
         bussinessValidation(email).then(res => {
@@ -87,5 +94,13 @@ function register() {
 
 
 
+    }}
+    catch(err){
+        console.log(err)
+        toastr.error("", err.message, {
+            timeOut: 1500,
+            positionClass: 'toast-top-center',
+            preventDuplicates: true
+        });
     }
 }

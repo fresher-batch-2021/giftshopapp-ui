@@ -18,7 +18,7 @@ export class ValidationService{
     isValidPassword(value,errMessage){
         this.isValidString(value,"password can't be empty")
         // password validation are here
-        if(value.trim() == ""){
+        if(value.trim() == ""||value.length<8){
             throw new Error(errMessage)
         }
     }
